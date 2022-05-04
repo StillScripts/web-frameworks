@@ -24,6 +24,18 @@ export default {
 			console.log(this.currentComponent);
 		},
 	},
+	    head() {
+      return {
+        title: "Vue Basic Framework Concepts",
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'A list of basic Vue components'
+          }
+        ]
+      }
+			}
 };
 </script>
 
