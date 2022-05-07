@@ -7,7 +7,6 @@
 </script>
 
 <h1>The Famous Cats of YouTube</h1>
-
 <ul>
 	{#each cats as { id, name }, i}
 		<li>

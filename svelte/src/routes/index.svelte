@@ -85,6 +85,10 @@
 		text-decoration: none;
 	}
 
+	:global(a:hover) {
+		text-decoration: underline;
+	}
+
 	:global(*) {
 		box-sizing: border-box;
 	}

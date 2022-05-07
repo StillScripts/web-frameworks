@@ -80,6 +80,10 @@ export default {
 		text-decoration: none;
 	}
 
+	a:hover {
+		text-decoration: underline;
+	}
+
 	* {
 		box-sizing: border-box;
 	}

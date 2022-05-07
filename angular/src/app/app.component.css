@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	height: 100%;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: rgba(84, 105, 215, 0.5);
+	border-radius: 16px;
+}
+.links button {
+	background-color: rgba(84, 105, 215, 1);
+	color: white;
+	margin: 8px;
+	padding: 16px 8px;
+	border-radius: 8px;
+	list-style: none;
+	cursor: pointer;
+	border: none;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.links button:hover {
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.components {
+	padding: 8px 24px;
+}
