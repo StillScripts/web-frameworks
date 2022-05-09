@@ -11,6 +11,7 @@ import {
   Props,
   Styling,
 } from "./components";
+import TextTyping from "./components/Custom/TextTyping";
 
 enum Components {
   HelloWorld,
@@ -90,6 +91,15 @@ const App: Component = () => {
             <ListLooping />
           </Match>
         </Switch>
+        <br></br>
+        <p style={{ "font-size": "32px" }}>
+          Hello{" "}
+          <TextTyping
+            text={["Daniel...", "Caitlin...", "Summer..."]}
+            cursor
+            loop
+          />
+        </p>
       </div>
     </div>
   );
