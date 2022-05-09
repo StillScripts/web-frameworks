@@ -51,12 +51,11 @@ const TextTyping: Component<TextTypingProps> = ({
   const [currentText, setCurrentText] = createSignal<string>(""); // The current text displayed within the <span>
   const [currentLine, setCurrentLine] = createSignal<string>(""); // The current line selected from the text prop.
   const [currentLineIndex, setCurrentLineIndex] = createSignal<number>(0); // The index number used to select the current line.
-  //const [currentLength, setCurrentLength] = createSignal<number>(0); //
-  const [currentTextIndex, setCurrentTextIndex] = createSignal<number>(0);
   const [direction, setDirection] =
     createSignal<TypewriterDirection>("forward");
 
-  const [finish, setFinish] = createSignal(false); // Variable for when the typing has finished
+  const [finished, setFinished] = createSignal(false); // Variable for when the typing has finished
+  const [paused, setPaused] = createSignal(false);
 
   onMount(() => {
     // Initialise the current line
@@ -66,24 +65,40 @@ const TextTyping: Component<TextTypingProps> = ({
   createEffect(() => {
     // Run the interval when start is true
     if (start) {
-      setInterval(() => {
-        typing();
-      }, 100);
+      timeLoop(400);
     }
   });
 
   createEffect(() => {
     // Handle animation being completed
-    if (finish()) {
+    if (finished()) {
       finalAction && finalAction();
-      alert("Finished")
+      alert("Finished");
     }
   });
 
   /**
+   * Loop that runs continuously or until the typewrite is finished
+   * @param intervalTime
+   */
+  function timeLoop(intervalTime: number) {
+    if (!finished()) {
+      setTimeout(() => {
+        if (paused()) {
+          setPaused(false);
+          timeLoop(2000);
+        } else {
+          typewrite();
+          timeLoop(100);
+        }
+      }, intervalTime);
+    }
+  }
+
+  /**
    * Run the typewriter
    */
-  function typing() {
+  function typewrite() {
     if (direction() === "forward") {
       handleForwardTyping();
     } else {
@@ -99,19 +114,21 @@ const TextTyping: Component<TextTypingProps> = ({
     // Currently typing forward, so check if it is at the end of the line.
     if (currentText().length === currentLine().length) {
       // The current line is finished, check what needs to be done next.
-      if (singleLine || currentTextIndex() + 1 === text.length) {
+      if (singleLine || currentLineIndex() + 1 === text.length) {
         // Currently on final line, so loop it or finish...
         if (loop) {
-          // Looping so change the direction
+          // Looping so change the direction to backspace typing
           setDirection("backward");
           // Since we have changed direction, we could run a pause here...
+          setPaused(true);
         } else {
-          setFinish(true);
+          setFinished(true);
         }
       } else {
         // It must be in a loop, so we can confidently shift to backspace typing...
         setDirection("backward");
         // Since we have changed direction, we could run a pause here...
+        setPaused(true);
       }
     } else {
       // Since we are not at the beginning, simply add a character
@@ -142,6 +159,7 @@ const TextTyping: Component<TextTypingProps> = ({
         }
       }
       // Since we have changed direction, we could run a pause here...
+      setPaused(true);
     } else {
       // Since we are not at the beginning, simply remove a character.
       setCurrentText(currentLine().substring(0, currentText().length - 1)); // Update the displayed text
