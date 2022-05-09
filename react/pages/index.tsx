@@ -1,15 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import BasicVariables from "../src/components/BasicVariables";
-import ConditionalRendering from "../src/components/ConditionalRendering";
-import DependentVariables from "../src/components/DependentVariables";
-import HelloWorld from "../src/components/HelloWorld";
-import HTML from "../src/components/HTML";
-import ListLooping from "../src/components/ListLooping";
-import NestingComponents from "../src/components/NestingComponents";
-import Props from "../src/components/Props";
-import Styling from "../src/components/Styling";
+import {
+  BasicVariables,
+  ConditionalRendering,
+  DependentVariables,
+  HelloWorld,
+  HTML,
+  ListLooping,
+  NestingComponents,
+  Props,
+  Styling,
+} from "../src/components";
 import styles from "../styles/Home.module.css";
 
 enum Components {
