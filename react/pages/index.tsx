@@ -18,10 +18,10 @@ enum Components {
   HelloWorld,
   Styling,
   NestingComponents,
+  Props,
   HTML,
   BasicVariables,
   DependentVariables,
-  Props,
   ConditionalRendering,
   ListLooping,
 }
@@ -52,6 +52,7 @@ const Home: NextPage = () => {
         <button onClick={() => handleSwitch(Components.NestingComponents)}>
           Nesting Components
         </button>
+        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
         <button onClick={() => handleSwitch(Components.HTML)}>HTML Tags</button>
         <button onClick={() => handleSwitch(Components.BasicVariables)}>
           Basic Variables
@@ -59,7 +60,6 @@ const Home: NextPage = () => {
         <button onClick={() => handleSwitch(Components.DependentVariables)}>
           Dependent Variables
         </button>
-        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
         <button onClick={() => handleSwitch(Components.ConditionalRendering)}>
           Conditional Rendering
         </button>
@@ -74,14 +74,14 @@ const Home: NextPage = () => {
           <Styling />
         ) : currentComponent === Components.NestingComponents ? (
           <NestingComponents />
+        ) : currentComponent === Components.Props ? (
+          <Props />
         ) : currentComponent === Components.HTML ? (
           <HTML />
         ) : currentComponent === Components.BasicVariables ? (
           <BasicVariables />
         ) : currentComponent === Components.DependentVariables ? (
           <DependentVariables />
-        ) : currentComponent === Components.Props ? (
-          <Props />
         ) : currentComponent === Components.ConditionalRendering ? (
           <ConditionalRendering />
         ) : currentComponent === Components.ListLooping ? (

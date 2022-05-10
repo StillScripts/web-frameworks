@@ -3,10 +3,10 @@
     <button (click)="handleSwitch(0)">Hello World</button>
     <button (click)="handleSwitch(1)">Styling</button>
     <button (click)="handleSwitch(2)">Nesting Components</button>
-    <button (click)="handleSwitch(3)">HTML Tags</button>
-    <button (click)="handleSwitch(4)">Basic Variables</button>
-    <button (click)="handleSwitch(5)">Dependent Variables</button>
-    <button (click)="handleSwitch(6)">Props</button>
+    <button (click)="handleSwitch(3)">Props</button>
+    <button (click)="handleSwitch(4)">HTML Tags</button>
+    <button (click)="handleSwitch(5)">Basic Variables</button>
+    <button (click)="handleSwitch(6)">Dependent Variables</button>
     <button (click)="handleSwitch(7)">Conditional Rendering</button>
     <button (click)="handleSwitch(8)">List Looping</button>
   </nav>
@@ -14,10 +14,10 @@
     <app-hello-world *ngIf="currentComponent===0"></app-hello-world>
     <app-styling *ngIf="currentComponent===1"></app-styling>
     <app-nesting-components *ngIf="currentComponent===2"></app-nesting-components>
-    <app-html *ngIf="currentComponent===3"><strong>HTML!!!</strong></app-html>
-    <app-basic-variables *ngIf="currentComponent===4"></app-basic-variables>
-    <app-dependent-variables *ngIf="currentComponent===5"></app-dependent-variables>
-    <app-props *ngIf="currentComponent===6"></app-props>
+    <app-props *ngIf="currentComponent===3"></app-props>
+    <app-html *ngIf="currentComponent===4"><strong>HTML!!!</strong></app-html>
+    <app-basic-variables *ngIf="currentComponent===5"></app-basic-variables>
+    <app-dependent-variables *ngIf="currentComponent===6"></app-dependent-variables>
     <app-conditional-rendering *ngIf="currentComponent===7"></app-conditional-rendering>
     <app-list-looping *ngIf="currentComponent===8"></app-list-looping>
   </div>

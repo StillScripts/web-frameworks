@@ -3,10 +3,10 @@ enum Components {
 	HelloWorld,
 	Styling,
 	NestingComponents,
+	Props,
 	HTML,
 	BasicVariables,
 	DependentVariables,
-	Props,
 	ConditionalRendering,
 	ListLooping,
 }
@@ -45,10 +45,10 @@ export default {
 			<button @click="() => handleSwitch(0)">Hello World</button>
 			<button @click="() => handleSwitch(1)">Styling</button>
 			<button @click="() => handleSwitch(2)">Nesting Components</button>
-			<button @click="() => handleSwitch(3)">HTML Tags</button>
-			<button @click="() => handleSwitch(4)">Basic Variables</button>
-			<button @click="() => handleSwitch(5)">Dependent Variables</button>
-			<button @click="() => handleSwitch(6)">Props</button>
+			<button @click="() => handleSwitch(3)">Props</button>
+			<button @click="() => handleSwitch(4)">HTML Tags</button>
+			<button @click="() => handleSwitch(5)">Basic Variables</button>
+			<button @click="() => handleSwitch(6)">Dependent Variables</button>
 			<button @click="() => handleSwitch(7)">Conditional Rendering</button>
 			<button @click="() => handleSwitch(8)">List Looping</button>
 		</nav>
@@ -57,9 +57,9 @@ export default {
 			<HelloWorld v-if="currentComponent === 0" />
 			<Styling v-if="currentComponent === 1" />
 			<NestingComponents  v-if="currentComponent === 2" />
-			<BasicVariables v-if="currentComponent === 4" />
-			<DependentVariables v-if="currentComponent === 5" />
-			<Props v-if="currentComponent === 6" />
+			<Props v-if="currentComponent === 3" />
+			<BasicVariables v-if="currentComponent === 5" />
+			<DependentVariables v-if="currentComponent === 6" />
 			<ConditionalRendering v-if="currentComponent === 7" />
 			<ListLooping v-if="currentComponent === 8" />
 		</div>

@@ -17,10 +17,10 @@ enum Components {
   HelloWorld,
   Styling,
   NestingComponents,
+  Props,
   HTML,
   BasicVariables,
   DependentVariables,
-  Props,
   ConditionalRendering,
   ListLooping,
   RainbowTypewriter,
@@ -29,10 +29,7 @@ enum Components {
 
 const App: Component = () => {
   const [currentComponent, setCurrentComponent] = createSignal<Components>(
-    Components.RainbowTypewriter
-  );
-  const [typingColor, setTypingColor] = createSignal<"red" | "orange" | "blue">(
-    "red"
+    Components.HelloWorld
   );
 
   const handleSwitch = (newComponent: Components) => {
@@ -51,6 +48,7 @@ const App: Component = () => {
         <button onClick={() => handleSwitch(Components.NestingComponents)}>
           Nesting Components
         </button>
+        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
         <button onClick={() => handleSwitch(Components.HTML)}>HTML Tags</button>
         <button onClick={() => handleSwitch(Components.BasicVariables)}>
           Basic Variables
@@ -58,7 +56,6 @@ const App: Component = () => {
         <button onClick={() => handleSwitch(Components.DependentVariables)}>
           Dependent Variables
         </button>
-        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
         <button onClick={() => handleSwitch(Components.ConditionalRendering)}>
           Conditional Rendering
         </button>
@@ -83,14 +80,14 @@ const App: Component = () => {
           <Match when={currentComponent() === Components.NestingComponents}>
             <NestingComponents />
           </Match>
+          <Match when={currentComponent() === Components.Props}>
+            <Props />
+          </Match>
           <Match when={currentComponent() === Components.HTML}>
             <p>To be determined</p>
           </Match>
           <Match when={currentComponent() === Components.BasicVariables}>
             <BasicVariables />
-          </Match>
-          <Match when={currentComponent() === Components.Props}>
-            <Props />
           </Match>
           <Match when={currentComponent() === Components.DependentVariables}>
             <DependentVariables />

@@ -1,10 +1,10 @@
-import { Component } from "solid-js";
+import { Component, JSX } from "solid-js";
 import Nested from "./Nested";
 
-const styles: CSSModuleClasses = {
-  color: "purple",
-  fontFamily: "'Comic Sans MS', cursive",
-  fontSize: "2em",
+const styles: JSX.CSSProperties = {
+  "color": "purple",
+  "font-family": "'Comic Sans MS', cursive",
+  "font-size": "2em",
 };
 
 const NestingComponents: Component = () => {

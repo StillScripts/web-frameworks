@@ -4,10 +4,10 @@ enum Components {
   HelloWorld,
   Styling,
   NestingComponents,
+  Props,
   HTML,
   BasicVariables,
   DependentVariables,
-  Props,
   ConditionalRendering,
   ListLooping
 }

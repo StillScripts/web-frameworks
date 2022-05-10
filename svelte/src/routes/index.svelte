@@ -13,10 +13,10 @@
 		HelloWorld,
 		Styling,
 		NestingComponents,
+		Props,
 		HTML,
 		BasicVariables,
 		DependentVariables,
-		Props,
 		ConditionalRendering,
 		ListLooping
 	}
@@ -39,11 +39,11 @@
 		<button on:click={() => handleSwitch(Components.HelloWorld)}>Hello World</button>
 		<button on:click={() => handleSwitch(Components.Styling)}>Styling</button>
 		<button on:click={() => handleSwitch(Components.NestingComponents)}>Nesting Components</button>
+		<button on:click={() => handleSwitch(Components.Props)}>Props</button>
 		<button on:click={() => handleSwitch(Components.HTML)}>HTML Tags</button>
 		<button on:click={() => handleSwitch(Components.BasicVariables)}>Basic Variables</button>
 		<button on:click={() => handleSwitch(Components.DependentVariables)}>Dependent Variables</button
 		>
-		<button on:click={() => handleSwitch(Components.Props)}>Props</button>
 		<button on:click={() => handleSwitch(Components.ConditionalRendering)}
 			>Conditional Rendering</button
 		>
@@ -56,14 +56,14 @@
 			<Styling />
 		{:else if currentComponent === Components.NestingComponents}
 			<NestingComponents />
+		{:else if currentComponent === Components.Props}
+			<Props />
 		{:else if currentComponent === Components.HTML}
 			<HTML />
 		{:else if currentComponent === Components.BasicVariables}
 			<BasicVariables />
 		{:else if currentComponent === Components.DependentVariables}
 			<DependentVariables />
-		{:else if currentComponent === Components.Props}
-			<Props />
 		{:else if currentComponent === Components.ConditionalRendering}
 			<ConditionalRendering />
 		{:else if currentComponent === Components.ListLooping}
