@@ -22,30 +22,43 @@ interface TyperProps {
 
 export type TypewriterDirection = "forward" | "backward";
 
-export interface TextTypingProps {
+export interface SolidTyperProps {
   className?: string; // The outer class that wraps all the text.
+  style?: JSX.CSSProperties; // An optional style object to pass directly to the outer span.
 
-  // Play around with possible options
+  // Common parameters
   text: string | string[]; // A word/sentence or a group of word/sentences that get typed out.
   loop?: boolean; // Control whether the typing animation occurs once or continuosly.
   start?: boolean; // Determine whether the animation should start.
+  cursor?: boolean; // Whether or not to show the cursor
+  startDelay?: number; // An optional amount of time to wait before the animation starts.
 
   // Parameters related to forward and backward typing.
   typingSpeed?: number; // The speed at which the cursor types text forward.
   backspaceSpeed?: number; // The speed at which the cursor deletes text.
-  typingPause?: number; // A time to pause between words
-  backspacePause?: number; // A time to pause before
-  cursor?: boolean; // Whether or not to show the cursor
+  typingPause?: number; // A time to pause before beginning to type
+  backspacePause?: number; // A time to pause before backspacing.
+  onTypingEnd?: () => void; // A method which can be called when the typing reaches the end of the line
+  onBackspaceEnd?: () => void; // A method which can be called when the backspace typing reaches the beginning of the line
 
-  finalAction?: () => void; // A method from the parent component to call when the typing animation is finished
+  onFinish?: () => void; // A method from the parent component to call when the typing animation is finished
 }
 
-const TextTyping: Component<TextTypingProps> = ({
+const TextTyping: Component<SolidTyperProps> = ({
+  className,
+  style,
   text,
   loop,
   start = true,
-  cursor,
-  finalAction,
+  cursor = true,
+  startDelay,
+  typingSpeed = 120,
+  backspaceSpeed = 80,
+  typingPause = 1000,
+  backspacePause = 200,
+  onTypingEnd,
+  onBackspaceEnd,
+  onFinish,
 }) => {
   const singleLine: boolean = typeof text === "string";
   const [currentText, setCurrentText] = createSignal<string>(""); // The current text displayed within the <span>
@@ -65,33 +78,32 @@ const TextTyping: Component<TextTypingProps> = ({
   createEffect(() => {
     // Run the interval when start is true
     if (start) {
-      timeLoop(400);
-    }
-  });
-
-  createEffect(() => {
-    // Handle animation being completed
-    if (finished()) {
-      finalAction && finalAction();
-      alert("Finished");
+      if (startDelay)
+        setTimeout(() => {
+          timeLoop(typingSpeed);
+        }, startDelay);
+      else timeLoop(typingSpeed);
     }
   });
 
   /**
-   * Loop that runs continuously or until the typewrite is finished
-   * @param intervalTime
+   * Loop that runs continuously or until the typewrite is finished.
+   * @param {number} intervalTime - The time of each timeout interval.
    */
   function timeLoop(intervalTime: number) {
     if (!finished()) {
+      // Run timeout interval unless the animation is finished
       setTimeout(() => {
         if (paused()) {
-          setPaused(false);
-          timeLoop(2000);
+          setPaused(false); // Ensure next interval is not paused
+          timeLoop(direction() === "forward" ? backspacePause : typingPause);
         } else {
           typewrite();
-          timeLoop(100);
+          timeLoop(direction() === "forward" ? typingSpeed : backspaceSpeed);
         }
       }, intervalTime);
+    } else {
+      console.log("Program finished");
     }
   }
 
@@ -123,6 +135,7 @@ const TextTyping: Component<TextTypingProps> = ({
           setPaused(true);
         } else {
           setFinished(true);
+          onFinish && onFinish();
         }
       } else {
         // It must be in a loop, so we can confidently shift to backspace typing...
@@ -130,6 +143,8 @@ const TextTyping: Component<TextTypingProps> = ({
         // Since we have changed direction, we could run a pause here...
         setPaused(true);
       }
+      // If there is a lineAction provided, here is where to call it...
+      onTypingEnd && onTypingEnd();
     } else {
       // Since we are not at the beginning, simply add a character
       setCurrentText(currentLine().substring(0, currentText().length + 1)); // Update the displayed text
@@ -144,8 +159,7 @@ const TextTyping: Component<TextTypingProps> = ({
   function handleBackSpace() {
     // Currently typing backward, so check if a line is back at the start.
     if (currentText().length === 0) {
-      // We are at the beginning so we need to change direction, and switch lines if using multiple lines
-      setDirection("forward"); // Change direction
+      // Backspace ended, now at start of line
       if (!singleLine) {
         // Multiple lines, so we need to change lines.
         if (currentLineIndex() + 1 === text.length) {
@@ -158,8 +172,12 @@ const TextTyping: Component<TextTypingProps> = ({
           setCurrentLine(text[currentLineIndex()]);
         }
       }
+      // We are at the beginning so we need to change direction, and switch lines if using multiple lines
+      setDirection("forward"); // Change direction
       // Since we have changed direction, we could run a pause here...
       setPaused(true);
+      // Call the onBackspaceEnd() method if it exists.
+      onBackspaceEnd && onBackspaceEnd();
     } else {
       // Since we are not at the beginning, simply remove a character.
       setCurrentText(currentLine().substring(0, currentText().length - 1)); // Update the displayed text
@@ -169,13 +187,13 @@ const TextTyping: Component<TextTypingProps> = ({
   function cursorStyles(): JSX.CSSProperties {
     return {
       opacity: 0,
-      visibility: cursor ? "visible" : "hidden",
-      animation: `blink 800ms steps(1) infinite`,
+      visibility: !finished() && cursor ? "visible" : "hidden",
+      animation: `fade 800ms steps(1) infinite`,
       animationDelay: `100ms`,
     };
   }
   return (
-    <span>
+    <span class={className} style={style}>
       {currentText()}
       <span style={cursorStyles()}>|</span>
     </span>

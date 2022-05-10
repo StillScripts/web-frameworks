@@ -1,4 +1,4 @@
-@keyframes blink {
+@keyframes fade {
   50% {
     opacity: 1;
   }

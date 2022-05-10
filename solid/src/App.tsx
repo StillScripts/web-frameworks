@@ -11,7 +11,7 @@ import {
   Props,
   Styling,
 } from "./components";
-import TextTyping from "./components/Custom/TextTyping";
+import { RainbowTypewriter, SentenceTypewriter } from "./containers";
 
 enum Components {
   HelloWorld,
@@ -23,11 +23,16 @@ enum Components {
   Props,
   ConditionalRendering,
   ListLooping,
+  RainbowTypewriter,
+  SentenceTypewriter,
 }
 
 const App: Component = () => {
   const [currentComponent, setCurrentComponent] = createSignal<Components>(
-    Components.HelloWorld
+    Components.RainbowTypewriter
+  );
+  const [typingColor, setTypingColor] = createSignal<"red" | "orange" | "blue">(
+    "red"
   );
 
   const handleSwitch = (newComponent: Components) => {
@@ -60,6 +65,12 @@ const App: Component = () => {
         <button onClick={() => handleSwitch(Components.ListLooping)}>
           List Looping
         </button>
+        <button onClick={() => handleSwitch(Components.RainbowTypewriter)}>
+          Rainbow Typewriter
+        </button>
+        <button onClick={() => handleSwitch(Components.SentenceTypewriter)}>
+          Sentence Typewriter
+        </button>
       </nav>
       <div className={styles.components}>
         <Switch fallback={<p>Switch is out of range</p>}>
@@ -90,16 +101,13 @@ const App: Component = () => {
           <Match when={currentComponent() === Components.ListLooping}>
             <ListLooping />
           </Match>
+          <Match when={currentComponent() === Components.RainbowTypewriter}>
+            <RainbowTypewriter />
+          </Match>
+          <Match when={currentComponent() === Components.SentenceTypewriter}>
+            <SentenceTypewriter />
+          </Match>
         </Switch>
-        <br></br>
-        <p style={{ "font-size": "32px" }}>
-          Hello{" "}
-          <TextTyping
-            text={["Daniel...", "Caitlin...", "Summer..."]}
-            cursor
-            loop
-          />
-        </p>
       </div>
     </div>
   );
