@@ -7,10 +7,9 @@ export interface SolidTyperProps {
   className?: string; // The outer class that wraps all the text.
   style?: JSX.CSSProperties; // An optional style object to pass directly to the outer span.
 
-  // Common parameters
+  // Common general parameters
   text: string | string[]; // A word/sentence or a group of word/sentences that get typed out.
   loop?: boolean; // Control whether the typing animation occurs once or continuosly.
-  start?: boolean; // Determine whether the animation should start.
   cursor?: boolean; // Whether or not to show the cursor
   startDelay?: number; // An optional amount of time to wait before the animation starts.
 
@@ -20,7 +19,7 @@ export interface SolidTyperProps {
   typingPause?: number; // A time to pause before beginning to type
   backspacePause?: number; // A time to pause before backspacing.
 
-  // Methods to call at different times related to 
+  // Methods to call at different times related to
   onTypingEnd?: () => void; // A method which can be called when the typing reaches the end of the line
   onBackspaceEnd?: () => void; // A method which can be called when the backspace typing reaches the beginning of the line
   onFinish?: () => void; // A method from the parent component to call when the typing animation is finished
@@ -31,13 +30,12 @@ const TextTyping: Component<SolidTyperProps> = ({
   style,
   text,
   loop,
-  start = true,
-  cursor = true,
+  cursor,
   startDelay,
   typingSpeed = 120,
-  backspaceSpeed = 80,
-  typingPause = 1000,
-  backspacePause = 200,
+  backspaceSpeed = 70,
+  typingPause = 1200,
+  backspacePause = 400,
   onTypingEnd,
   onBackspaceEnd,
   onFinish,
@@ -55,16 +53,12 @@ const TextTyping: Component<SolidTyperProps> = ({
   onMount(() => {
     // Initialise the current line
     setCurrentLine(typeof text === "string" ? text : text[0]);
-  });
-
-  createEffect(() => {
-    // Run the interval when start is true
-    if (start) {
-      if (startDelay)
-        setTimeout(() => {
-          timeLoop(typingSpeed);
-        }, startDelay);
-      else timeLoop(typingSpeed);
+    if (startDelay) {
+      setTimeout(() => {
+        timeLoop(typingSpeed);
+      }, startDelay);
+    } else {
+      timeLoop(typingSpeed);
     }
   });
 
@@ -166,18 +160,24 @@ const TextTyping: Component<SolidTyperProps> = ({
     }
   }
 
+  /**
+   * Process the styles for the cursor when the component loads
+   * @returns {JSX.CSSProperties}
+   */
   function cursorStyles(): JSX.CSSProperties {
     return {
       opacity: 0,
-      visibility: !finished() && cursor ? "visible" : "hidden",
+      visibility: cursor ? "visible" : "hidden",
       animation: `fade 800ms steps(1) infinite`,
       animationDelay: `100ms`,
     };
   }
+
   return (
     <span class={className} style={style}>
       {currentText()}
-      <span style={cursorStyles()}>|</span>
+      {!finished() &&
+      <span style={cursorStyles()}>|</span>}
     </span>
   );
 };
