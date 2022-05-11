@@ -1,28 +1,9 @@
 import { Component, createEffect, createSignal, JSX, onMount } from "solid-js";
 import "./styles.css";
 
-interface TyperProps {
-  sentences: string[];
-  startDelay?: number;
-  cursorDelay?: number;
-  className?: string;
-  cursorClassName?: string;
-  cursorColor?: string;
-  cursorBlinkSpeed?: number;
-  showCursor?: boolean;
-  hideCursorOnFinish?: boolean;
-  cursorSmooth?: boolean;
-  typingSpeed?: number;
-  deletingSpeed?: number;
-  pauseTime?: number;
-  loop?: boolean;
-  //style?: React.CSSProperties;
-  defaultText?: string;
-}
-
-export type TypewriterDirection = "forward" | "backward";
-
+type TypewriterDirection = "forward" | "backward";
 export interface SolidTyperProps {
+  // Styling
   className?: string; // The outer class that wraps all the text.
   style?: JSX.CSSProperties; // An optional style object to pass directly to the outer span.
 
@@ -38,9 +19,10 @@ export interface SolidTyperProps {
   backspaceSpeed?: number; // The speed at which the cursor deletes text.
   typingPause?: number; // A time to pause before beginning to type
   backspacePause?: number; // A time to pause before backspacing.
+
+  // Methods to call at different times related to 
   onTypingEnd?: () => void; // A method which can be called when the typing reaches the end of the line
   onBackspaceEnd?: () => void; // A method which can be called when the backspace typing reaches the beginning of the line
-
   onFinish?: () => void; // A method from the parent component to call when the typing animation is finished
 }
 

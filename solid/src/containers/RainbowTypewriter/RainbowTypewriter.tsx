@@ -23,17 +23,11 @@ const rainbowWords = rainbowColors.map((word) => `${word}...`);
 
 const RainbowTypewriter: Component = () => {
   const [colorIndex, setColorIndex] = createSignal<number>(0);
-  const [color, setColor] = createSignal<Rainbow>("red");
-
-  createEffect(() => {
-    setColor(rainbowColors[colorIndex() % 7]);
-    console.log(colorIndex() + " " + color());
-  });
 
   return (
     <p style={{ "font-size": "32px" }}>
       Rainbow typewriter:{" "}
-      <span style={{ color: `${color()}` }}>
+      <span style={{ color: `${rainbowColors[colorIndex() % 7]}` }}>
         <SolidTyper
           text={rainbowWords}
           cursor
