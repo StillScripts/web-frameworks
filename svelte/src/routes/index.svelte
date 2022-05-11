@@ -94,11 +94,13 @@
 	}
 
 	.container {
+  width: 100vw;
 		display: flex;
 		height: 100%;
 	}
 
-	.links {
+	.links { 
+  margin: 16px;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -122,6 +124,12 @@
 	}
 
 	.components {
+  width: 100%;
+  margin: 16px;
+  background-color: rgba(100,80,180,0.1);
+  border-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 		padding: 8px 24px;
 	}
 </style>
