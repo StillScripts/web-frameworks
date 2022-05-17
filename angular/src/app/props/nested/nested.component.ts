@@ -1,16 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nested',
-  templateUrl: './nested.component.html',
-  styleUrls: ['./nested.component.css']
+  template: `<p>The answer is {{ answer }}</p>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NestedComponent implements OnInit {
-  @Input() answer: string|number = "a mystery";
-  constructor() {
-   }
-
-  ngOnInit(): void {
-  }
-
+export class NestedComponent {
+  @Input() answer: string | number = 'a mystery';
 }
