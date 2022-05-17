@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-basic-variables',
-  templateUrl: './basic-variables.component.html',
-  styleUrls: ['./basic-variables.component.css']
+  template: `
+    <button (click)="count = count + 1">
+      Clicked {{ count }} {{ count === 1 ? 'time' : 'times' }}
+    </button>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BasicVariablesComponent implements OnInit {
-  count: number;
+export class BasicVariablesComponent {
+  count = 0;
 
-  constructor() { 
-    this.count = 0;
-  }
-
-  ngOnInit(): void {
-  }
-
+  // we can also mutate primitives on the template directly
   handleClick() {
     this.count++;
   }

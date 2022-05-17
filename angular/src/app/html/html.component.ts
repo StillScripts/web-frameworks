@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-html',
-  templateUrl: './html.component.html',
-  styleUrls: ['./html.component.css']
+  template: ` <p>here's some <ng-content></ng-content></p> `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HTMLComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class HTMLComponent {}
