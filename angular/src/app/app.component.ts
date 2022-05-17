@@ -5,33 +5,10 @@ import {
   Inject,
   OnDestroy,
   OnInit,
-  Type,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { BasicVariablesComponent } from './basic-variables/basic-variables.component';
-import { ConditionalRenderingComponent } from './conditional-rendering/conditional-rendering.component';
-import { DependentVariablesComponent } from './dependent-variables/dependent-variables.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { HTMLComponent } from './html/html.component';
-import { ListLoopingComponent } from './list-looping/list-looping.component';
-import { NestingComponentsComponent } from './nesting-components/nesting-components.component';
-import { PropsComponent } from './props/props.component';
-import { StylingComponent } from './styling/styling.component';
-
-const componentsMap = {
-  HelloWorld: () => HelloWorldComponent,
-  Styling: () => StylingComponent,
-  NestingComponents: () => NestingComponentsComponent,
-  Props: () => PropsComponent,
-  HTML: () => HTMLComponent,
-  BasicVariables: () => BasicVariablesComponent,
-  DependentVariables: () => DependentVariablesComponent,
-  ConditionalRendering: () => ConditionalRenderingComponent,
-  ListLooping: () => ListLoopingComponent,
-} as const;
-
-type ComponentKeys = keyof typeof componentsMap;
+import { ComponentKeys, componentsMap } from './components-map';
 
 @Component({
   selector: 'app-root',
@@ -54,22 +31,25 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   handleSwitch(newComponent: ComponentKeys) {
-    if (this.componentRef) {
-      this.componentRef.destroy();
-    }
-
     const componentFactory = componentsMap[newComponent];
-    this.componentRef = this.anchor.createComponent(
-      componentFactory() as Type<unknown>,
-      // For dynamic approach, this is needed
-      {
-        projectableNodes:
-          newComponent === 'HTML'
-            ? [[this.document.createTextNode('HTML!!!')]]
-            : [],
-      }
-    );
-    this.componentRef.changeDetectorRef.markForCheck();
+    const component = componentFactory();
+
+    // we only mount a new component on the anchor if it's different
+    if (this.componentRef && this.componentRef.componentType !== component) {
+      this.componentRef.destroy();
+
+      this.componentRef = this.anchor.createComponent(
+        component,
+        // For dynamic approach, this is needed
+        {
+          projectableNodes:
+            newComponent === 'HTML'
+              ? [[this.document.createTextNode('HTML!!!')]]
+              : [],
+        }
+      );
+      this.componentRef.changeDetectorRef.markForCheck();
+    }
   }
 
   ngOnDestroy() {
