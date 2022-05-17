@@ -1,18 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-hello-world',
-  templateUrl: './hello-world.component.html',
-  styleUrls: ['./hello-world.component.css']
+  template: ` <p>Hello {{ name }}!</p> `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HelloWorldComponent implements OnInit {
-  name: string;
-
-  constructor() { 
-    this.name = "world";
-  }
-
-  ngOnInit(): void {
-  }
-
+export class HelloWorldComponent {
+  name = 'world';
 }

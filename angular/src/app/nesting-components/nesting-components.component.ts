@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-nesting-components',
-  templateUrl: './nesting-components.component.html',
-  styleUrls: ['./nesting-components.component.css']
+  template: `
+    <p>These styles</p>
+    <app-nested-component></app-nested-component>
+  `,
+  styles: [
+    `
+      p {
+        color: purple;
+        font-family: 'Comic Sans MS', cursive;
+        font-size: 2em;
+      }
+    `,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NestingComponentsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class NestingComponentsComponent {}

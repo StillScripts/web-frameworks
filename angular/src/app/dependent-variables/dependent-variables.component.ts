@@ -1,23 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-dependent-variables',
-  templateUrl: './dependent-variables.component.html',
-  styleUrls: ['./dependent-variables.component.css'],
+  template: `
+    <button (click)="handleClick()">Count: {{ count }}</button>
+    <app-changing-values [count]="count"></app-changing-values>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DependentVariablesComponent implements OnInit {
-  count: number;
-
-  constructor() {
-    this.count = 1;
-  }
-
-  ngOnInit(): void {
-  }
+export class DependentVariablesComponent {
+  count = 1;
 
   handleClick() {
-		this.count++; 
-	}
-
-
+    this.count++;
+  }
 }

@@ -1,24 +1,23 @@
 <div class="container">
   <nav class="links">
-    <button (click)="handleSwitch(0)">Hello World</button>
-    <button (click)="handleSwitch(1)">Styling</button>
-    <button (click)="handleSwitch(2)">Nesting Components</button>
-    <button (click)="handleSwitch(3)">Props</button>
-    <button (click)="handleSwitch(4)">HTML Tags</button>
-    <button (click)="handleSwitch(5)">Basic Variables</button>
-    <button (click)="handleSwitch(6)">Dependent Variables</button>
-    <button (click)="handleSwitch(7)">Conditional Rendering</button>
-    <button (click)="handleSwitch(8)">List Looping</button>
+    <button (click)="handleSwitch('HelloWorld')">Hello World</button>
+    <button (click)="handleSwitch('Styling')">Styling</button>
+    <button (click)="handleSwitch('NestingComponents')">Nesting Components</button>
+    <button (click)="handleSwitch('Props')">Props</button>
+    <button (click)="handleSwitch('HTML')">HTML Tags</button>
+    <button (click)="handleSwitch('BasicVariables')">Basic Variables</button>
+    <button (click)="handleSwitch('DependentVariables')">Dependent Variables</button>
+    <button (click)="handleSwitch('ConditionalRendering')">Conditional Rendering</button>
+    <button (click)="handleSwitch('ListLooping')">List Looping</button>
   </nav>
   <div class="components">
-    <app-hello-world *ngIf="currentComponent===0"></app-hello-world>
-    <app-styling *ngIf="currentComponent===1"></app-styling>
-    <app-nesting-components *ngIf="currentComponent===2"></app-nesting-components>
-    <app-props *ngIf="currentComponent===3"></app-props>
-    <app-html *ngIf="currentComponent===4"><strong>HTML!!!</strong></app-html>
-    <app-basic-variables *ngIf="currentComponent===5"></app-basic-variables>
-    <app-dependent-variables *ngIf="currentComponent===6"></app-dependent-variables>
-    <app-conditional-rendering *ngIf="currentComponent===7"></app-conditional-rendering>
-    <app-list-looping *ngIf="currentComponent===8"></app-list-looping>
+    <!-- Instead of using an anchor to render dynamically, we can use ngSwitch as well -->
+    <!-- That might be easier to read. Eg: -->
+    <!--    <ng-container [ngSwitch]="currentComponent">  -->
+    <!--      <app-hello-world *ngSwitchCase="1"></app-hello-world> -->
+    <!--      &lt;!&ndash; more components &ndash;&gt;  -->
+    <!--    </ng-container> -->
+
+    <ng-container #anchor></ng-container>
   </div>
 </div>

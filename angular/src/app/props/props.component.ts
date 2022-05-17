@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-props',
-  templateUrl: './props.component.html',
-  styleUrls: ['./props.component.css']
+  template: `
+    <app-nested></app-nested>
+    <app-nested [answer]="42"></app-nested>
+  `,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
-export class PropsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class PropsComponent {}
