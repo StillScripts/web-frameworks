@@ -1,4 +1,4 @@
-import { Component, createEffect, createSignal, JSX, onMount } from "solid-js";
+import { Component, createEffect, createSignal, JSX, onMount, Show } from "solid-js";
 import "./styles.css";
 
 type TypewriterDirection = "forward" | "backward";
@@ -164,20 +164,20 @@ const TextTyping: Component<SolidTyperProps> = ({
    * Process the styles for the cursor when the component loads
    * @returns {JSX.CSSProperties}
    */
-  function cursorStyles(): JSX.CSSProperties {
-    return {
-      opacity: 0,
-      visibility: cursor ? "visible" : "hidden",
-      animation: `fade 800ms steps(1) infinite`,
-      animationDelay: `100ms`,
-    };
-  }
+  // function cursorStyles(): JSX.CSSProperties {
+  //   return {
+  //     opacity: 0,
+  //     animation: `fade 800ms steps(1) infinite`,
+  //     animationDelay: `100ms`,
+  //   };
+  // }
 
   return (
     <span class={className} style={style}>
       {currentText()}
-      {!finished() &&
-      <span style={cursorStyles()}>|</span>}
+      <Show when={cursor && !finished()}>
+        <span class="cursor">|</span>
+      </Show>
     </span>
   );
 };
