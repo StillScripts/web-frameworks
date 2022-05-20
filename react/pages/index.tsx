@@ -12,6 +12,7 @@ import {
   Props,
   Styling,
 } from "../src/components";
+import RainbowTypewriter from "../src/containers/RainbowTypewriter";
 import styles from "../styles/Home.module.css";
 
 enum Components {
@@ -24,6 +25,7 @@ enum Components {
   DependentVariables,
   ConditionalRendering,
   ListLooping,
+  TypingAnimation
 }
 
 const Home: NextPage = () => {
@@ -66,6 +68,9 @@ const Home: NextPage = () => {
         <button onClick={() => handleSwitch(Components.ListLooping)}>
           List Looping
         </button>
+        <button onClick={() => handleSwitch(Components.TypingAnimation)}>
+          Typing Animation
+        </button>
       </nav>
       <div className={styles.components}>
         {currentComponent === Components.HelloWorld ? (
@@ -87,7 +92,7 @@ const Home: NextPage = () => {
         ) : currentComponent === Components.ListLooping ? (
           <ListLooping />
         ) : (
-          ""
+          <RainbowTypewriter />
         )}
       </div>
     </div>

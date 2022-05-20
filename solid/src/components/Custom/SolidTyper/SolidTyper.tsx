@@ -1,4 +1,4 @@
-import { Component, createEffect, createSignal, JSX, onMount, Show } from "solid-js";
+import { Component, createSignal, JSX, onMount, Show } from "solid-js";
 import "./styles.css";
 
 type TypewriterDirection = "forward" | "backward";

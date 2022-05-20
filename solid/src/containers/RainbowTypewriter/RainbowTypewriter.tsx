@@ -25,7 +25,7 @@ const RainbowTypewriter: Component = () => {
   const [colorIndex, setColorIndex] = createSignal<number>(0);
 
   return (
-    <p style={{ "font-size": "32px" }}>
+    <h2>
       Rainbow typewriter:{" "}
       <span style={{ color: `${rainbowColors[colorIndex() % 7]}` }}>
         <SolidTyper
@@ -37,7 +37,7 @@ const RainbowTypewriter: Component = () => {
           }}
         />
       </span>
-    </p>
+    </h2>
   );
 };
 

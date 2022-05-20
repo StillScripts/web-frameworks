@@ -1,0 +1,11 @@
+@keyframes fade {
+  50% {
+    opacity: 1;
+  }
+}
+
+.cursor {
+  opacity: 0;
+  animation: fade 800ms steps(1) infinite;
+  animation-delay: 100ms;
+}
