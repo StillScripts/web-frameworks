@@ -69,7 +69,7 @@ const Home: NextPage = () => {
           List Looping
         </button>
         <button onClick={() => handleSwitch(Components.TypingAnimation)}>
-          Typing Animation
+          Rainbow Typewriter
         </button>
       </nav>
       <div className={styles.components}>

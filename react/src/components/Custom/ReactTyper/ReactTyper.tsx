@@ -1,11 +1,7 @@
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { useEffectOnce, useTimeout } from "usehooks-ts";
 import styles from "./styles.module.css";
 
-/**
- * Useful hook for a continuous time loop
- * @param callback
- * @param delay
- */
 function useRecursiveTimeout<T>(callback: () => void, delay: number | null) {
   const savedCallback = useRef(callback);
 
@@ -18,6 +14,8 @@ function useRecursiveTimeout<T>(callback: () => void, delay: number | null) {
   useEffect(() => {
     let id: NodeJS.Timeout;
     function tick() {
+      const ret = savedCallback.current();
+
       if (delay !== null) {
         id = setTimeout(tick, delay);
       }
@@ -76,11 +74,11 @@ const ReactTyper = ({
   const [currentLineIndex, setCurrentLineIndex] = useState<number>(0); // The index number used to select the current line.
   const [currentSpeed, setCurrentSpeed] = useState(
     startDelay ? startDelay : 50
-  ); // The current speed of the typewriter
-  const [direction, setDirection] = useState<TypewriterDirection>("forward");
+  ); // The current speed
 
+  const [direction, setDirection] = useState<TypewriterDirection>("forward"); // The typing direction
   const [finished, setFinished] = useState(false); // Variable for when the typing has finished
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(false); // Variable for when the typing is paused
 
   /**
    * A method which checks if the typewriter is at the end of the line and handle this
@@ -95,8 +93,8 @@ const ReactTyper = ({
         if (loop) {
           // Looping so change the direction to backspace typing
           setDirection("backward");
-          // Since we have changed direction, we could run a pause here...
           setPaused(true);
+          setCurrentSpeed(typingPause);
         } else {
           setFinished(true);
           onFinish && onFinish();
@@ -104,8 +102,8 @@ const ReactTyper = ({
       } else {
         // It must be in a loop, so we can confidently shift to backspace typing...
         setDirection("backward");
-        // Since we have changed direction, we could run a pause here...
         setPaused(true);
+        setCurrentSpeed(typingPause);
       }
       // If there is a lineAction provided, here is where to call it...
       onTypingEnd && onTypingEnd();
@@ -120,6 +118,8 @@ const ReactTyper = ({
     loop,
     onFinish,
     onTypingEnd,
+    setCurrentSpeed,
+    typingPause,
     singleLine,
     text.length,
   ]);
@@ -142,13 +142,13 @@ const ReactTyper = ({
         } else {
           // Move to the next line...
           setCurrentLineIndex(currentLineIndex + 1);
-          setCurrentLine(text[currentLineIndex]);
+          setCurrentLine(text[currentLineIndex+1]);
         }
       }
       // We are at the beginning so we need to change direction, and switch lines if using multiple lines
       setDirection("forward"); // Change direction
-      // Since we have changed direction, we could run a pause here...
       setPaused(true);
+      setCurrentSpeed(backspacePause);
       // Call the onBackspaceEnd() method if it exists.
       onBackspaceEnd && onBackspaceEnd();
     } else {
@@ -159,7 +159,9 @@ const ReactTyper = ({
     currentLine,
     currentLineIndex,
     currentText.length,
+    backspacePause,
     onBackspaceEnd,
+    setCurrentSpeed,
     singleLine,
     text,
   ]);
@@ -180,16 +182,12 @@ const ReactTyper = ({
       // Run timeout interval unless the animation is finished
       if (paused) {
         setPaused(false); // Ensure next interval is not paused
-        if (direction === "forward" && currentSpeed !== backspacePause)
-          setCurrentSpeed(backspacePause);
-        else if (direction === "backward" && currentSpeed !== typingPause)
-          setCurrentSpeed(typingPause);
-      } else {
-        typewrite();
         if (direction === "forward" && currentSpeed !== typingSpeed)
           setCurrentSpeed(typingSpeed);
         else if (direction === "backward" && currentSpeed !== backspaceSpeed)
           setCurrentSpeed(backspaceSpeed);
+      } else {
+        typewrite();
       }
     } else {
       console.log("Program finished");
