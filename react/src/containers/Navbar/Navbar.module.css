@@ -1,0 +1,26 @@
+.links { 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgba(84, 105, 215, 0.5);
+  padding: 16px 8px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.links button {
+  background-color: rgba(84, 105, 215, 1);
+  color: white;
+  margin: 12px;
+  padding: 12px 6px;
+  border-radius: 16px;
+  text-transform: uppercase;
+  list-style: none;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.links button:hover {
+  background-color: rgb(56, 78, 189);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}

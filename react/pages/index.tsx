@@ -12,10 +12,11 @@ import {
   Props,
   Styling,
 } from "../src/components";
+import Navbar from "../src/containers/Navbar";
 import RainbowTypewriter from "../src/containers/RainbowTypewriter";
 import styles from "../styles/Home.module.css";
 
-enum Components {
+export enum Components {
   HelloWorld,
   Styling,
   NestingComponents,
@@ -44,34 +45,10 @@ const Home: NextPage = () => {
         <meta name="description" content="A list of basic React components" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className={styles.links}>
-        <button onClick={() => handleSwitch(Components.HelloWorld)}>
-          Hello World
-        </button>
-        <button onClick={() => handleSwitch(Components.Styling)}>
-          Styling
-        </button>
-        <button onClick={() => handleSwitch(Components.NestingComponents)}>
-          Nesting Components
-        </button>
-        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
-        <button onClick={() => handleSwitch(Components.HTML)}>HTML Tags</button>
-        <button onClick={() => handleSwitch(Components.BasicVariables)}>
-          Basic Variables
-        </button>
-        <button onClick={() => handleSwitch(Components.DependentVariables)}>
-          Dependent Variables
-        </button>
-        <button onClick={() => handleSwitch(Components.ConditionalRendering)}>
-          Conditional Rendering
-        </button>
-        <button onClick={() => handleSwitch(Components.ListLooping)}>
-          List Looping
-        </button>
-        <button onClick={() => handleSwitch(Components.TypingAnimation)}>
-          Rainbow Typewriter
-        </button>
-      </nav>
+      <Navbar action={handleSwitch} />
+      <div className={styles.mobile}>
+        <button>open</button>
+      </div>
       <div className={styles.components}>
         {currentComponent === Components.HelloWorld ? (
           <HelloWorld />
