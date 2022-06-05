@@ -26,16 +26,18 @@ export enum Components {
   DependentVariables,
   ConditionalRendering,
   ListLooping,
-  TypingAnimation
+  TypingAnimation,
 }
 
 const Home: NextPage = () => {
   const [currentComponent, setCurrentComponent] = useState<Components>(
     Components.HelloWorld
   );
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSwitch = (newComponent: Components) => {
     setCurrentComponent(newComponent);
+    setMenuOpen(false);
   };
 
   return (
@@ -45,11 +47,16 @@ const Home: NextPage = () => {
         <meta name="description" content="A list of basic React components" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar action={handleSwitch} />
+      <Navbar menuOpen={menuOpen} action={handleSwitch} />
       <div className={styles.mobile}>
-        <button>open</button>
+        <button onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? "close" : "open"}
+        </button>
       </div>
-      <div className={styles.components}>
+      <div
+        className={styles.components}
+        style={menuOpen ? { display: "none" } : {}}
+      >
         {currentComponent === Components.HelloWorld ? (
           <HelloWorld />
         ) : currentComponent === Components.Styling ? (

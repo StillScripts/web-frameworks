@@ -2,12 +2,13 @@ import { Components } from "../../../pages";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
+  menuOpen: boolean;
   action: (option: Components) => void;
 }
 
-const Navbar = ({ action }: NavbarProps) => {
+const Navbar = ({ menuOpen, action }: NavbarProps) => {
   return (
-    <nav className={styles.links}>
+    <nav className={styles.links} style={menuOpen ? { display: "flex" } : {}}>
       <button onClick={() => action(Components.HelloWorld)}>Hello World</button>
       <button onClick={() => action(Components.Styling)}>Styling</button>
       <button onClick={() => action(Components.NestingComponents)}>

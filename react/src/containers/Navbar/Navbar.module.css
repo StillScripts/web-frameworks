@@ -1,7 +1,6 @@
 .links { 
   display: flex;
   flex-direction: column;
-  height: 100%;
   background-color: rgba(84, 105, 215, 0.5);
   padding: 16px 8px;
   height: 100vh;
@@ -23,4 +22,15 @@
 .links button:hover {
   background-color: rgb(56, 78, 189);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .links {
+    display: none;
+    height: 100%;
+  }
 }
