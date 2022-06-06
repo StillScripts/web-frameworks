@@ -1,20 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import {
-  BasicVariables,
-  ConditionalRendering,
-  DependentVariables,
-  HelloWorld,
-  HTML,
-  ListLooping,
-  NestingComponents,
-  Props,
-  Styling,
-} from "../src/components";
-import Navbar from "../src/containers/Navbar";
-import RainbowTypewriter from "../src/containers/RainbowTypewriter";
-import styles from "../styles/Home.module.css";
+import { Navbar, PageContent } from "../src/sections";
+import styles from "../styles/HomePage.module.css";
 
 export enum Components {
   HelloWorld,
@@ -35,8 +23,8 @@ const Home: NextPage = () => {
   );
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleSwitch = (newComponent: Components) => {
-    setCurrentComponent(newComponent);
+  const handleSwitch = (newComponent?: Components) => {
+    typeof newComponent === "number" && setCurrentComponent(newComponent);
     setMenuOpen(false);
   };
 
@@ -48,37 +36,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar menuOpen={menuOpen} action={handleSwitch} />
-      <div className={styles.mobile}>
-        <button onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? "close" : "open"}
-        </button>
-      </div>
-      <div
-        className={styles.components}
-        style={menuOpen ? { display: "none" } : {}}
-      >
-        {currentComponent === Components.HelloWorld ? (
-          <HelloWorld />
-        ) : currentComponent === Components.Styling ? (
-          <Styling />
-        ) : currentComponent === Components.NestingComponents ? (
-          <NestingComponents />
-        ) : currentComponent === Components.Props ? (
-          <Props />
-        ) : currentComponent === Components.HTML ? (
-          <HTML />
-        ) : currentComponent === Components.BasicVariables ? (
-          <BasicVariables />
-        ) : currentComponent === Components.DependentVariables ? (
-          <DependentVariables />
-        ) : currentComponent === Components.ConditionalRendering ? (
-          <ConditionalRendering />
-        ) : currentComponent === Components.ListLooping ? (
-          <ListLooping />
-        ) : (
-          <RainbowTypewriter />
-        )}
-      </div>
+      <PageContent
+        currentComponent={currentComponent}
+        menuOpen={menuOpen}
+        setMenuOpen={() => setMenuOpen(!menuOpen)}
+      />
     </div>
   );
 };

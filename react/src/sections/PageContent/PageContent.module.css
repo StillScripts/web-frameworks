@@ -1,11 +1,6 @@
-.container {
-  display: flex;
-  width: 100vw;
-  height: 100%;
-}
-
 .components {
   width: 100%;
+  min-height: 100vh;
   background-color: rgba(100,80,180,0.1);
   padding: 24px;
 }
@@ -20,6 +15,7 @@
   }
 
   .mobile {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
   }
 }

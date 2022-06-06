@@ -1,5 +1,4 @@
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
-import { useEffectOnce, useTimeout } from "usehooks-ts";
 import styles from "./styles.module.css";
 
 function useRecursiveTimeout<T>(callback: () => void, delay: number | null) {
