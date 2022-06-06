@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Navbar, PageContent } from "../src/sections";
 import styles from "../styles/HomePage.module.css";
 
+// An enum containing an option for each component example
 export enum Components {
   HelloWorld,
   Styling,
@@ -17,7 +18,27 @@ export enum Components {
   TypingAnimation,
 }
 
-export const getComponentTitle = (component: Components) => {
+// A list of each component based on the enum options above
+export const componentsList: Components[] = [
+  Components.HelloWorld,
+  Components.Styling,
+  Components.NestingComponents,
+  Components.Props,
+  Components.HTML,
+  Components.BasicVariables,
+  Components.DependentVariables,
+  Components.ConditionalRendering,
+  Components.ListLooping,
+  Components.TypingAnimation,
+];
+
+/**
+ * Method which converts an option of the Components enum into
+ * a string to display a title for a component.
+ * @param {Components} component
+ * @returns {string}
+ */
+export const getComponentTitle = (component: Components): string => {
   switch (component) {
     case Components.HelloWorld:
       return "Hello World";
@@ -28,7 +49,7 @@ export const getComponentTitle = (component: Components) => {
     case Components.Props:
       return "Props";
     case Components.HTML:
-      return "HTML";
+      return "HTML Tags";
     case Components.BasicVariables:
       return "Basic Variables";
     case Components.DependentVariables:
@@ -36,7 +57,7 @@ export const getComponentTitle = (component: Components) => {
     case Components.ConditionalRendering:
       return "Conditional Rendering";
     case Components.ListLooping:
-      return "Dependent Variables";
+      return "List Looping";
     case Components.TypingAnimation:
       return "Typing Animation";
   }
@@ -60,11 +81,15 @@ const Home: NextPage = () => {
         <meta name="description" content="A list of basic React components" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar currentComponent={currentComponent} menuOpen={menuOpen} action={handleSwitch} />
+      <Navbar
+        currentComponent={currentComponent}
+        menuOpen={menuOpen}
+        action={handleSwitch}
+      />
       <PageContent
         currentComponent={currentComponent}
         menuOpen={menuOpen}
-        setMenuOpen={() => setMenuOpen(!menuOpen)}
+        action={() => setMenuOpen(!menuOpen)}
       />
     </div>
   );

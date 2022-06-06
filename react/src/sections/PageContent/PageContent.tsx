@@ -11,18 +11,15 @@ import {
   Styling,
 } from "../../components";
 import RainbowTypewriter from "../../components/Custom/Examples/RainbowTypewriter";
+import { NavbarProps } from "../Navbar/Navbar";
 import styles from "./PageContent.module.css";
 
-interface PageContentProps {
-  currentComponent: Components;
-  menuOpen: boolean;
-  setMenuOpen: () => void;
-}
+interface PageContentProps extends NavbarProps {}
 
 const PageContent = ({
   currentComponent,
   menuOpen,
-  setMenuOpen,
+  action,
 }: PageContentProps) => {
   return (
     <div
@@ -30,9 +27,11 @@ const PageContent = ({
       style={menuOpen ? { display: "none" } : {}}
     >
       <div className={styles.mobile}>
-        <div onClick={setMenuOpen}>=</div>
+        <div onClick={() => action()}>=</div>
       </div>
-      <h1 className={styles.heading}>{getComponentTitle(currentComponent)} Example</h1>
+      <h1 className={styles.heading}>
+        {getComponentTitle(currentComponent)} Example
+      </h1>
       <div>
         {currentComponent === Components.HelloWorld ? (
           <HelloWorld />
