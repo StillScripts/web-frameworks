@@ -1,4 +1,4 @@
-import { Components } from "../../../pages";
+import { Components, getComponentTitle } from "../../../pages";
 import {
   BasicVariables,
   ConditionalRendering,
@@ -32,6 +32,7 @@ const PageContent = ({
       <div className={styles.mobile}>
         <div onClick={setMenuOpen}>=</div>
       </div>
+      <h1 className={styles.heading}>{getComponentTitle(currentComponent)} Example</h1>
       <div>
         {currentComponent === Components.HelloWorld ? (
           <HelloWorld />
