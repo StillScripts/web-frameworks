@@ -1,38 +1,97 @@
+import { CSSProperties, useCallback } from "react";
 import { Components } from "../../../pages";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
+  currentComponent: Components;
   menuOpen: boolean;
   action: (option?: Components) => void;
 }
 
-const Navbar = ({ menuOpen, action }: NavbarProps) => {
+const Navbar = ({ currentComponent, menuOpen, action }: NavbarProps) => {
+  const checkActiveBackground = useCallback(
+    (component: Components): CSSProperties => {
+      if (currentComponent === component)
+        return { backgroundColor: "rgb(56, 78, 189)" };
+      return {};
+    },
+    [currentComponent]
+  );
+
   return (
     <nav className={styles.links} style={menuOpen ? { display: "flex" } : {}}>
       <div className={styles.close} onClick={() => action()}>
         <div>x</div>
       </div>
-      <button onClick={() => action(Components.HelloWorld)}>Hello World</button>
-      <button onClick={() => action(Components.Styling)}>Styling</button>
-      <button onClick={() => action(Components.NestingComponents)}>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.HelloWorld)}
+        onClick={() => action(Components.HelloWorld)}
+      >
+        Hello World
+      </button>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.Styling)}
+        onClick={() => action(Components.Styling)}
+      >
+        Styling
+      </button>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.NestingComponents)}
+        onClick={() => action(Components.NestingComponents)}
+      >
         Nesting Components
       </button>
-      <button onClick={() => action(Components.Props)}>Props</button>
-      <button onClick={() => action(Components.HTML)}>HTML Tags</button>
-      <button onClick={() => action(Components.BasicVariables)}>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.Props)}
+        onClick={() => action(Components.Props)}
+      >
+        Props
+      </button>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.HTML)}
+        onClick={() => action(Components.HTML)}
+      >
+        HTML Tags
+      </button>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.BasicVariables)}
+        onClick={() => action(Components.BasicVariables)}
+      >
         Basic Variables
       </button>
-      <button onClick={() => action(Components.DependentVariables)}>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.DependentVariables)}
+        onClick={() => action(Components.DependentVariables)}
+      >
         Dependent Variables
       </button>
-      <button onClick={() => action(Components.ConditionalRendering)}>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.ConditionalRendering)}
+        onClick={() => action(Components.ConditionalRendering)}
+      >
         Conditional Rendering
       </button>
-      <button onClick={() => action(Components.ListLooping)}>
+      <button
+        type="button"
+        style={checkActiveBackground(Components.ListLooping)}
+        onClick={() => action(Components.ListLooping)}
+      >
         List Looping
       </button>
-      <button onClick={() => action(Components.TypingAnimation)}>
-        Rainbow Typewriter
+      <button
+        type="button"
+        style={checkActiveBackground(Components.TypingAnimation)}
+        onClick={() => action(Components.TypingAnimation)}
+      >
+        Typing Animation
       </button>
     </nav>
   );
