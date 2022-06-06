@@ -9,6 +9,12 @@
   display: none;
 }
 
+.heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgb(0, 0, 92);
+}
+
 @media screen and (max-width: 480px) {
   .container {
     flex-direction: column;
@@ -17,5 +23,9 @@
   .mobile {
     display: flex;
     justify-content: flex-end;
+  }
+
+  .heading {
+    font-size: 2rem;
   }
 }
