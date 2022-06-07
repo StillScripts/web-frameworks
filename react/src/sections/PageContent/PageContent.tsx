@@ -30,7 +30,7 @@ const PageContent = ({
         <div onClick={() => action()}>=</div>
       </div>
       <h1 className={styles.heading}>
-        {getComponentTitle(currentComponent)} Example
+        {getComponentTitle(currentComponent)}
       </h1>
       <div>
         {currentComponent === Components.HelloWorld ? (
