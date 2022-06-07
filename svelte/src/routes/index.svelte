@@ -78,15 +78,7 @@
 		margin: 0;
 		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
 			Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	}
-
-	:global(a) {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	:global(a:hover) {
-		text-decoration: underline;
+		overflow-x: hidden;
 	}
 
 	:global(*) {
