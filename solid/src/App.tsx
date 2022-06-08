@@ -1,19 +1,9 @@
-import { Component, createSignal, Match, Switch } from "solid-js";
-
+import { Component, createSignal } from "solid-js";
 import styles from "./App.module.css";
-import {
-  BasicVariables,
-  ConditionalRendering,
-  DependentVariables,
-  HelloWorld,
-  ListLooping,
-  NestingComponents,
-  Props,
-  Styling,
-} from "./components";
-import { RainbowTypewriter, SentenceTypewriter } from "./containers";
+import { Navbar, PageContent } from "./sections";
 
-enum Components {
+// An enum containing an option for each component example
+export enum Components {
   HelloWorld,
   Styling,
   NestingComponents,
@@ -23,89 +13,77 @@ enum Components {
   DependentVariables,
   ConditionalRendering,
   ListLooping,
-  RainbowTypewriter,
-  SentenceTypewriter,
+  TypingAnimation,
 }
+
+// A list of each component based on the enum options above
+export const componentsList: Components[] = [
+  Components.HelloWorld,
+  Components.Styling,
+  Components.NestingComponents,
+  Components.Props,
+  Components.HTML,
+  Components.BasicVariables,
+  Components.DependentVariables,
+  Components.ConditionalRendering,
+  Components.ListLooping,
+  Components.TypingAnimation,
+];
+
+/**
+ * Method which converts an option of the Components enum into
+ * a string to display a title for a component.
+ * @param {Components} component
+ * @returns {string}
+ */
+export const getComponentTitle = (component: Components): string => {
+  switch (component) {
+    case Components.HelloWorld:
+      return "Hello World";
+    case Components.Styling:
+      return "Styling";
+    case Components.NestingComponents:
+      return "Nesting Components";
+    case Components.Props:
+      return "Props";
+    case Components.HTML:
+      return "HTML Tags";
+    case Components.BasicVariables:
+      return "Basic Variables";
+    case Components.DependentVariables:
+      return "Dependent Variables";
+    case Components.ConditionalRendering:
+      return "Conditional Rendering";
+    case Components.ListLooping:
+      return "List Looping";
+    case Components.TypingAnimation:
+      return "Typing Animation";
+  }
+};
 
 const App: Component = () => {
   const [currentComponent, setCurrentComponent] = createSignal<Components>(
     Components.HelloWorld
   );
+  const [menuOpen, setMenuOpen] = createSignal(false);
 
-  const handleSwitch = (newComponent: Components) => {
-    setCurrentComponent(newComponent);
+  const handleSwitch = (newComponent?: Components) => {
+    typeof newComponent === "number" && setCurrentComponent(newComponent);
+    setMenuOpen(false);
   };
 
   return (
     <div class={styles.container}>
-      <nav className={styles.links}>
-        <button onClick={() => handleSwitch(Components.HelloWorld)}>
-          Hello World
-        </button>
-        <button onClick={() => handleSwitch(Components.Styling)}>
-          Styling
-        </button>
-        <button onClick={() => handleSwitch(Components.NestingComponents)}>
-          Nesting Components
-        </button>
-        <button onClick={() => handleSwitch(Components.Props)}>Props</button>
-        <button onClick={() => handleSwitch(Components.HTML)}>HTML Tags</button>
-        <button onClick={() => handleSwitch(Components.BasicVariables)}>
-          Basic Variables
-        </button>
-        <button onClick={() => handleSwitch(Components.DependentVariables)}>
-          Dependent Variables
-        </button>
-        <button onClick={() => handleSwitch(Components.ConditionalRendering)}>
-          Conditional Rendering
-        </button>
-        <button onClick={() => handleSwitch(Components.ListLooping)}>
-          List Looping
-        </button>
-        <button onClick={() => handleSwitch(Components.RainbowTypewriter)}>
-          Rainbow Typewriter
-        </button>
-        <button onClick={() => handleSwitch(Components.SentenceTypewriter)}>
-          Sentence Typewriter
-        </button>
-      </nav>
-      <div className={styles.components}>
-        <Switch fallback={<p>Switch is out of range</p>}>
-          <Match when={currentComponent() === Components.HelloWorld}>
-            <HelloWorld />
-          </Match>
-          <Match when={currentComponent() === Components.Styling}>
-            <Styling />
-          </Match>
-          <Match when={currentComponent() === Components.NestingComponents}>
-            <NestingComponents />
-          </Match>
-          <Match when={currentComponent() === Components.Props}>
-            <Props />
-          </Match>
-          <Match when={currentComponent() === Components.HTML}>
-            <p>To be determined</p>
-          </Match>
-          <Match when={currentComponent() === Components.BasicVariables}>
-            <BasicVariables />
-          </Match>
-          <Match when={currentComponent() === Components.DependentVariables}>
-            <DependentVariables />
-          </Match>
-          <Match when={currentComponent() === Components.ConditionalRendering}>
-            <ConditionalRendering />
-          </Match>
-          <Match when={currentComponent() === Components.ListLooping}>
-            <ListLooping />
-          </Match>
-          <Match when={currentComponent() === Components.RainbowTypewriter}>
-            <RainbowTypewriter />
-          </Match>
-          <Match when={currentComponent() === Components.SentenceTypewriter}>
-            <SentenceTypewriter />
-          </Match>
-        </Switch>
-      </div>
+      <Navbar
+        currentComponent={currentComponent}
+        menuOpen={menuOpen}
+        action={handleSwitch}
+      />
+      <PageContent
+        currentComponent={currentComponent}
+        menuOpen={menuOpen}
+        action={() => setMenuOpen(!menuOpen())}
+      />
     </div>
   );
 };

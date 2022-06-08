@@ -15,7 +15,7 @@ export default {
 	data() {
 		return {
 			currentComponent: Components.HelloWorld,
-			all: Components
+			all: Components,
 		};
 	},
 	methods: {
@@ -24,18 +24,18 @@ export default {
 			console.log(this.currentComponent);
 		},
 	},
-	    head() {
-      return {
-        title: "Vue Basic Framework Concepts",
-        meta: [
-          {
-            hid: 'description',
-            name: 'description',
-            content: 'A list of basic Vue components'
-          }
-        ]
-      }
-			}
+	head() {
+		return {
+			title: "Vue Basic Framework Concepts",
+			meta: [
+				{
+					hid: "description",
+					name: "description",
+					content: "A list of basic Vue components",
+				},
+			],
+		};
+	},
 };
 </script>
 
@@ -55,7 +55,7 @@ export default {
 		<div class="components">
 			<HelloWorld v-if="currentComponent === 0" />
 			<Styling v-if="currentComponent === 1" />
-			<NestingComponents  v-if="currentComponent === 2" />
+			<NestingComponents v-if="currentComponent === 2" />
 			<Props v-if="currentComponent === 3" />
 			<BasicVariables v-if="currentComponent === 5" />
 			<DependentVariables v-if="currentComponent === 6" />
@@ -65,56 +65,56 @@ export default {
 	</div>
 </template>
 
-
 <style>
-	html,
-	body {
-		padding: 0;
-		margin: 0;
-		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-			Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-		overflow-x: hidden;
-	}
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	overflow-x: hidden;
+}
 
-	* {
-		box-sizing: border-box;
-	}
+* {
+	box-sizing: border-box;
+}
 
-	.container {
-		display: flex;
-		width: 100vw;
-		height: 100%;
-	}
+.container {
+	display: flex;
+	width: 100vw;
+	height: 100%;
+}
 
-	.links { 
-  margin: 16px;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		background-color: rgba(84, 105, 215, 0.5);
-		border-radius: 16px;
-	}
-	.links button {
-		background-color: rgba(84, 105, 215, 1);
-		color: white;
-		margin: 8px;
-		padding: 16px 8px;
-		border-radius: 8px;
-		list-style: none;
-		cursor: pointer;
-		border: none;
-		box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-	}
+.links {
+	margin: 16px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: rgba(84, 105, 215, 0.5);
+	border-radius: 16px;
+}
 
-	.links button:hover {
-		box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-	}
+.links button {
+	background-color: rgba(84, 105, 215, 1);
+	color: white;
+	margin: 8px;
+	padding: 16px 8px;
+	border-radius: 8px;
+	list-style: none;
+	cursor: pointer;
+	border: none;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
 
-	.components {
-		width: 100%;
-		margin: 16px;
-		background-color: rgba(100,80,180,0.1);
-		border-radius: 8px;
-		padding: 8px 24px;
-	}
+.links button:hover {
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.components {
+	width: 100%;
+	margin: 16px;
+	background-color: rgba(100, 80, 180, 0.1);
+	border-radius: 8px;
+	padding: 8px 24px;
+}
 </style>
