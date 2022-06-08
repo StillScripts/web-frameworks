@@ -1,0 +1,27 @@
+.components {
+	width: 100%;
+	min-height: 100vh;
+	background-color: rgba(100,80,180,0.1);
+	padding: 24px;
+}
+
+.mobile {
+	display: none;
+}
+
+.heading {
+	font-size: 2.5rem;
+	font-weight: 800;
+	color: rgb(0, 0, 92);
+}
+
+@media screen and (max-width: 480px) {
+	.mobile {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.heading {
+		font-size: 2rem;
+	}
+}

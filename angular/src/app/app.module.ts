@@ -17,6 +17,8 @@ import { NestingComponentsComponent } from './nesting-components/nesting-compone
 import { NestedComponent } from './props/nested/nested.component';
 import { PropsComponent } from './props/props.component';
 import { StylingComponent } from './styling/styling.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageContentComponent } from './page-content/page-content.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { StylingComponent } from './styling/styling.component';
     NestedComponentComponent,
     ChangingValuesComponent,
     MultiplyPipe,
+    NavbarComponent,
+    PageContentComponent,
   ],
   imports: [BrowserModule],
   bootstrap: [AppComponent],
