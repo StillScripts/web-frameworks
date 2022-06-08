@@ -36,6 +36,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     // we only mount a new component on the anchor if it's different
     if (this.componentRef && this.componentRef.componentType !== component) {
+      const html = this.document.createElement("strong");
+      html.innerHTML = "HTML!!!";
       this.componentRef.destroy();
 
       this.componentRef = this.anchor.createComponent(
@@ -44,7 +46,7 @@ export class AppComponent implements OnInit, OnDestroy {
         {
           projectableNodes:
             newComponent === 'HTML'
-              ? [[this.document.createTextNode('HTML!!!')]]
+              ? [[html]]
               : [],
         }
       );
