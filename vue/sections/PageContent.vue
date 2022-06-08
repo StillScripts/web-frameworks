@@ -1,6 +1,13 @@
 <script lang="ts">
-	import { HelloWorld } from "~~/.nuxt/components";
+export default {
+  props: {
+    currentComponent: Number,
+    menuOpen: Boolean,
+    action: Function,
+  },
+};
 </script>
+
 <template>
 	<div class="components">
 		<HelloWorld v-if="currentComponent === 0" />
