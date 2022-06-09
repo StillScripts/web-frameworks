@@ -2,6 +2,8 @@ import { component$, Host, useScopedStyles$ } from '@builder.io/qwik';
 import { usePage, usePageIndex } from '@builder.io/qwik-city';
 import styles from './sidebar.css?inline';
 
+
+
 export const SideBar = component$(
   () => {
     useScopedStyles$(styles);
