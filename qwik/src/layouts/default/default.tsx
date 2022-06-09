@@ -1,11 +1,10 @@
 import {
   component$,
   Host,
-  Slot,
   useScopedStyles$,
   useStore,
 } from "@builder.io/qwik";
-import Navbar from "../../sections/Navbar";
+import { Navbar, PageContent } from "../../sections";
 import styles from "./default.css?inline";
 
 // An enum containing an option for each component example
@@ -85,10 +84,16 @@ const DefaultLayout = component$(() => {
 
   return (
     <Host class="container">
-      <Navbar currentComponent={1} menuOpen={false} action={handleSwitch} />
-      <main>
-        <Slot />
-      </main>
+      <Navbar
+        currentComponent={store.currentComponent}
+        menuOpen={false}
+        action={handleSwitch}
+      />
+      <PageContent
+        currentComponent={store.currentComponent}
+        menuOpen={false}
+        action={handleSwitch}
+      />
     </Host>
   );
 });
