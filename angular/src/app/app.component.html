@@ -2,19 +2,15 @@
   <!-- Navbar -->
   <!-- <app-navbar></app-navbar> -->
   <nav class="links">
-    <button (click)="handleSwitch('HelloWorld')">Hello World</button>
-    <button (click)="handleSwitch('Styling')">Styling</button>
-    <button (click)="handleSwitch('NestingComponents')">Nesting Components</button>
-    <button (click)="handleSwitch('Props')">Props</button>
-    <button (click)="handleSwitch('HTML')">HTML Tags</button>
-    <button (click)="handleSwitch('BasicVariables')">Basic Variables</button>
-    <button (click)="handleSwitch('DependentVariables')">Dependent Variables</button>
-    <button (click)="handleSwitch('ConditionalRendering')">Conditional Rendering</button>
-    <button (click)="handleSwitch('ListLooping')">List Looping</button>
+    <button *ngFor="let component of getComponentsList(); let i = index"
+      (click)="handleSwitch(getComponentKey(component))">
+      {{getComponentTitle(i)}}
+    </button>
   </nav>
   <!-- Components -->
   <!-- <app-page-content></app-page-content> -->
   <div class="components">
+    <h1 class="heading">Heading</h1>
     <!-- Instead of using an anchor to render dynamically, we can use ngSwitch as well -->
     <!-- That might be easier to read. Eg: -->
     <!--    <ng-container [ngSwitch]="currentComponent">  -->

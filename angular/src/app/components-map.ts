@@ -1,3 +1,4 @@
+import { Components } from './app.component';
 import { BasicVariablesComponent } from './basic-variables/basic-variables.component';
 import { ConditionalRenderingComponent } from './conditional-rendering/conditional-rendering.component';
 import { DependentVariablesComponent } from './dependent-variables/dependent-variables.component';
