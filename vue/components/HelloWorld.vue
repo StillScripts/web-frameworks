@@ -9,5 +9,5 @@ export default {
 </script>
 
 <template>
-	<h1>Hello {{ name }}!</h1>
+	<p>Hello {{ name }}!</p>
 </template>
