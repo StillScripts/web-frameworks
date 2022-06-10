@@ -17,7 +17,19 @@
 
 <div class="components" style={menuOpen ? 'display: none;' : ''}>
 	<div class="mobile">
-		<div on:click={() => action()}>=</div>
+		<div on:click={() => action()}>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="32px"
+				width="32px"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+				stroke-width="2"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+		</div>
 	</div>
 	<h1 class="heading">
 		{getComponentTitle(currentComponent)}
@@ -49,7 +61,7 @@
 	.components {
 		width: 100%;
 		min-height: 100vh;
-		background-color: rgba(100,80,180,0.1);
+		background-color: rgba(100, 80, 180, 0.1);
 		padding: 24px;
 	}
 

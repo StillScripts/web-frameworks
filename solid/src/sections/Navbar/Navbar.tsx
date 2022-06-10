@@ -16,7 +16,21 @@ const Navbar: Component<NavbarProps> = ({
   return (
     <nav className={styles.links} style={menuOpen() ? { display: "flex" } : {}}>
       <div className={styles.close} onClick={() => action()}>
-        <div>x</div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="32px"
+          width="32px"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
       </div>
       <For each={componentsList}>
         {(component) => (
@@ -30,9 +44,6 @@ const Navbar: Component<NavbarProps> = ({
             onClick={() => action(component)}
           >
             {getComponentTitle(component)}
-            {component === currentComponent()
-              ? ` backgroundColor: "rgb(56, 78, 189)" `
-              : ``}
           </button>
         )}
       </For>

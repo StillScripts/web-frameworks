@@ -13,51 +13,6 @@ export enum Components {
   TypingAnimation,
 }
 
-// A list of each component based on the enum options above
-export const componentsList: Components[] = [
-  Components.HelloWorld,
-  Components.Styling,
-  Components.NestingComponents,
-  Components.Props,
-  Components.HTML,
-  Components.BasicVariables,
-  Components.DependentVariables,
-  Components.ConditionalRendering,
-  Components.ListLooping,
-  Components.TypingAnimation,
-];
-
-/**
- * Method which converts an option of the Components enum into
- * a string to display a title for a component.
- * @param {Components} component
- * @returns {string}
- */
-export const getComponentTitle = (component: Components): string => {
-  switch (component) {
-    case Components.HelloWorld:
-      return "Hello World";
-    case Components.Styling:
-      return "Styling";
-    case Components.NestingComponents:
-      return "Nesting Components";
-    case Components.Props:
-      return "Props";
-    case Components.HTML:
-      return "HTML Tags";
-    case Components.BasicVariables:
-      return "Basic Variables";
-    case Components.DependentVariables:
-      return "Dependent Variables";
-    case Components.ConditionalRendering:
-      return "Conditional Rendering";
-    case Components.ListLooping:
-      return "List Looping";
-    case Components.TypingAnimation:
-      return "Typing Animation";
-  }
-};
-
 export default {
   data() {
     return {
@@ -112,7 +67,6 @@ export default {
     },
     handleSwitch(newComponent: Components) {
       this.currentComponent = newComponent;
-      console.log(this.currentComponent);
       this.menuOpen = false;
     },
     close() {
@@ -120,7 +74,7 @@ export default {
     },
     open() {
       this.menuOpen = true;
-    }
+    },
   },
   head() {
     return {
@@ -141,7 +95,23 @@ export default {
   <div class="container">
     <nav class="links" v-bind:style="menuOpen ? 'display: flex;' : ''">
       <div class="close">
-        <div @click="close">x</div>
+        <div @click="close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32px"
+            width="32px"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </div>
       </div>
       <button
         v-for="component of componentsList"
@@ -158,10 +128,22 @@ export default {
     </nav>
     <div class="components" v-bind:style="menuOpen ? 'display:none;' : ''">
       <div class="mobile">
-        <div
-          @click="open"
-        >
-          =
+        <div @click="open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32px"
+            width="32px"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
         </div>
       </div>
       <h1 class="heading">{{ getComponentTitle(currentComponent) }}</h1>

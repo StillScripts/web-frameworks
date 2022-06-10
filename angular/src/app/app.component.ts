@@ -31,6 +31,7 @@ export enum Components {
 export class AppComponent implements OnInit, OnDestroy {
   private componentRef?: ComponentRef<unknown>;
   private componentsList: Components[]; 
+  private menuOpen: boolean;
 
   @ViewChild('anchor', { static: true, read: ViewContainerRef })
   anchor!: ViewContainerRef;
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
       Components.ConditionalRendering,
       Components.ListLooping,
     ];
+    this.menuOpen = false;
   }
 
   ngOnInit() {
@@ -121,14 +123,6 @@ getComponentTitle(component: Components): string {
   };
 
   /**
-   * Enable public access for the components list
-   * @returns {Components[]}
-   */
-  getComponentsList(): Components[] {
-    return this.componentsList;
-  }
-
-  /**
    * Method which returns a key from the componentsMap using an enum option.
    * @param {Components} component - The enum option representing the component 
    * @returns {ComponentKeys}
@@ -156,5 +150,39 @@ getComponentTitle(component: Components): string {
       default:
         return "HelloWorld";
     } 
+  }
+
+  /**
+   * Enable public access for the components list
+   * @returns {Components[]}
+   */
+   getComponentsList(): Components[] {
+    return this.componentsList;
+  }
+
+  /**
+   * Enable public access for the menuOpen variable
+   * @returns {boolean}
+   */
+  getMenuOpen(): boolean {
+    return this.menuOpen;
+  }
+
+  setMenuOpen(open: boolean) {
+    this.menuOpen = open;
+  }
+
+  getLinksClass() {
+    if (this.menuOpen) {
+      return "links open-links" 
+    }
+    else {
+      return "links";
+    }
+  }
+
+  getComponentsClass() {
+    if (this.menuOpen) return "components components-close"
+    else return "components"
   }
 }
