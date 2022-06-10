@@ -1,7 +1,7 @@
 import { Component, createSignal, Match, Switch } from "solid-js";
 
 const ConditionalRendering: Component = () => {
-  const [x, setX] = createSignal(7);
+  const [x, setX] = createSignal(Math.floor(Math.random() * 15));
 
   return (
     <Switch fallback={<p>{x()} is between 5 and 10</p>}>

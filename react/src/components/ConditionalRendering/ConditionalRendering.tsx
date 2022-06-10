@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const ConditionalRendering: React.FC = () => {
-  const [x, setX] = useState(7);
+  const [x, setX] = useState(Math.floor(Math.random() * 15));
 
   return (
     <>

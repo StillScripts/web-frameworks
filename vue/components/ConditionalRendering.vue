@@ -6,7 +6,7 @@ export default {
 		}
 	}
 }
-	let x = 7;
+	let x = Math.floor(Math.random() * 15);;
 </script>
 
 <template>

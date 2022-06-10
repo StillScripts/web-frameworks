@@ -1,5 +1,5 @@
 <script lang='ts'>
-	let x = 7;
+	let x = Math.floor(Math.random() * 15);;
 </script>
 
 {#if x > 10}
