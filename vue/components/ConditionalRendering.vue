@@ -2,11 +2,10 @@
 export default {
 	data() {
 		return {
-			x: 7
+			x: Math.floor(Math.random() * 15)
 		}
 	}
 }
-	let x = Math.floor(Math.random() * 15);;
 </script>
 
 <template>
