@@ -1,9 +1,12 @@
 import { component$, Host, useScopedStyles$ } from "@builder.io/qwik";
 import {
   BasicVariables,
+  ConditionalRendering,
   DependentVariables,
   HelloWorld,
+  ListLooping,
   NestingComponents,
+  Props,
   Styling,
 } from "../../components";
 import { Components, getComponentTitle } from "../../layouts/default/default";
@@ -23,7 +26,7 @@ const PageContent = component$<PageContentProps>(
             <div onClick$={() => action()}>=</div>
           </div>
           <h1 className="heading">
-            {getComponentTitle(currentComponent)} {currentComponent}
+            {getComponentTitle(currentComponent)}
           </h1>
           <div>
             {currentComponent === Components.HelloWorld ? (
@@ -31,12 +34,21 @@ const PageContent = component$<PageContentProps>(
             ) : currentComponent === Components.Styling ? (
               <Styling />
             ) : currentComponent === Components.NestingComponents ? (
-              <NestingComponents/>
-            ) :
-            currentComponent === Components.BasicVariables ? (
+              <NestingComponents />
+            ) : currentComponent === Components.Props ? (
+              <Props />
+            ) : currentComponent === Components.HTML ? (
+              <p>To be completed</p>
+            ) : currentComponent === Components.BasicVariables ? (
               <BasicVariables />
             ) : currentComponent === Components.DependentVariables ? (
               <DependentVariables />
+            ) : currentComponent === Components.ConditionalRendering ? (
+              <ConditionalRendering />
+            ) : currentComponent === Components.ListLooping ? (
+              <ListLooping />
+            ) : currentComponent === Components.TypingAnimation ? (
+              <p>To be completed</p>
             ) : (
               <HelloWorld />
             )}

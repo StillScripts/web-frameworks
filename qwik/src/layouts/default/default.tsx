@@ -45,7 +45,7 @@ export const getComponentTitle = (component: Components): string => {
     case Components.NestingComponents:
       return "Nesting Components";
     case Components.Props:
-      return "Props";
+      return "Passing Props";
     case Components.HTML:
       return "HTML Tags";
     case Components.BasicVariables:
@@ -81,8 +81,8 @@ const DefaultLayout = component$(() => {
     <Host>
       <div class="container">
         <Navbar
-          currentComponent={store.currentComponent}
-          menuOpen={false}
+          currentComponent={mutable(store.currentComponent)}
+          menuOpen={mutable(false)}
           action={handleSwitch}
         />
         <PageContent
