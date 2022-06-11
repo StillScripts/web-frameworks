@@ -47,7 +47,7 @@ export const getComponentTitle = (component: Components): string => {
     case Components.NestingComponents:
       return "Nesting Components";
     case Components.Props:
-      return "Props";
+      return "Passing Props";
     case Components.HTML:
       return "HTML Tags";
     case Components.BasicVariables:
