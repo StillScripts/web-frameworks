@@ -1,9 +1,4 @@
-import {
-  component$,
-  Host,
-  useScopedStyles$,
-  useStore,
-} from "@builder.io/qwik";
+import { component$, Host, mutable, useScopedStyles$, useStore } from "@builder.io/qwik";
 import { Navbar, PageContent } from "../../sections";
 import styles from "./default.css?inline";
 
@@ -76,24 +71,26 @@ const DefaultLayout = component$(() => {
 
   const handleSwitch = (newComponent?: Components) => {
     if (typeof newComponent === "number") {
-      alert("Trying new " + newComponent + "old" + store.currentComponent);
+      //alert("Trying new " + newComponent + "old" + store.currentComponent);
       store.currentComponent = newComponent;
     }
     store.menuOpen = false;
   };
 
   return (
-    <Host class="container">
-      <Navbar
-        currentComponent={store.currentComponent}
-        menuOpen={false}
-        action={handleSwitch}
-      />
-      <PageContent
-        currentComponent={store.currentComponent}
-        menuOpen={false}
-        action={handleSwitch}
-      />
+    <Host>
+      <div class="container">
+        <Navbar
+          currentComponent={store.currentComponent}
+          menuOpen={false}
+          action={handleSwitch}
+        />
+        <PageContent
+          currentComponent={mutable(store.currentComponent)}
+          menuOpen={mutable(false)}
+          action={handleSwitch}
+        />
+      </div>
     </Host>
   );
 });
