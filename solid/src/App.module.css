@@ -9,11 +9,11 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: rgba(84, 105, 215, 0.5);
+  background-color: rgba(67, 72, 229, 0.4);
   border-radius: 16px;
 }
 .links button {
-  background-color: rgba(84, 105, 215, 1);
+  background-color: rgba(67, 72, 229, 1);
   color: white;
   margin: 8px;
   padding: 16px 8px;

@@ -38,7 +38,7 @@ const Navbar: Component<NavbarProps> = ({
             type="button"
             style={
               component === currentComponent()
-                ? { backgroundColor: "rgb(56, 78, 189)" }
+                ? { backgroundColor: "rgb(37, 33, 151)" }
                 : {}
             }
             onClick={() => action(component)}

@@ -13,7 +13,7 @@ const Navbar = ({ currentComponent, menuOpen, action }: NavbarProps) => {
   const checkActiveBackground = useCallback(
     (component: Components): CSSProperties => {
       if (currentComponent === component)
-        return { backgroundColor: "rgb(56, 78, 189)" };
+        return { backgroundColor: "rgb(37, 33, 151)" };
       return {};
     },
     [currentComponent]

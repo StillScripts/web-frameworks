@@ -1,13 +1,13 @@
 .links { 
   display: flex;
   flex-direction: column;
-  background-color: rgba(84, 105, 215, 0.5);
+  background-color: rgba(67, 72, 229, 0.4);
   padding: 16px 8px;
   height: 100vh;
   overflow-y: scroll;
 }
 .links button {
-  background-color: rgba(84, 105, 215, 1);
+  background-color: rgba(67, 72, 229, 1);
   color: white;
   margin: 12px;
   padding: 12px 6px;
@@ -20,7 +20,7 @@
 }
 
 .links button:hover {
-  background-color: rgb(56, 78, 189);
+  background-color: rgb(37, 33, 151);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
