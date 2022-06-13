@@ -10,22 +10,24 @@
   flex-direction: column;
   height: 100%;
   background-color: rgba(67, 72, 229, 0.4);
-  border-radius: 16px;
+  border-radius: 12px;
 }
 .links button {
-  background-color: rgba(67, 72, 229, 1);
-  color: white;
+  background-color: transparent;
+   color: rgb(37, 33, 151);
+font-weight: 600;
   margin: 8px;
   padding: 16px 8px;
   border-radius: 8px;
   list-style: none;
   cursor: pointer;
-  border: none;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  
+  border: 2px solid rgb(37, 33, 151);
 }
 
 .links button:hover {
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .components {
