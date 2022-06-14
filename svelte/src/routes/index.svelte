@@ -107,6 +107,6 @@
 	.container {
 		display: flex;
 		width: 100vw;
-		height: 100%;
+		height: 100vh;
 	}
 </style>
