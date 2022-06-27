@@ -3,39 +3,3 @@
   width: 100vw;
   height: 100vh;
 }
-
-.links { 
-  margin: 16px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: rgba(67, 72, 229, 0.4);
-  border-radius: 12px;
-}
-.links button {
-  background-color: transparent;
-   color: rgb(37, 33, 151);
-font-weight: 600;
-  margin: 8px;
-  padding: 16px 8px;
-  border-radius: 8px;
-  list-style: none;
-  cursor: pointer;
-  
-  border: 2px solid rgb(37, 33, 151);
-}
-
-.links button:hover {
-  color: rgba(255, 255, 255, 0.8);
-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.components {
-  width: 100%;
-  margin: 16px;
-  background-color: rgba(100,80,180,0.1);
-  border-radius: 8px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  padding: 8px 24px;
-}
