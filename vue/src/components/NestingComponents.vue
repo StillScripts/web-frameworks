@@ -1,22 +1,24 @@
 <script lang="ts">
-import Nested from './Nested/Nested.vue'
+import Unstyled from "./child/Unstyled.vue";
 
 export default {
-	components: {
-		Nested
-	}
-}
+  components: {
+    Unstyled,
+  },
+};
 </script>
 
 <template>
-	<p class="text">These styles...</p>
-	<Nested />
+  <div>
+    <p class="text">These styles...</p>
+    <Unstyled />
+  </div>
 </template>
 
 <style scoped>
 .text {
-	color: purple;
-	font-family: 'Comic Sans MS', cursive;
-	font-size: 2em;
+  color: purple;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 2em;
 }
 </style>

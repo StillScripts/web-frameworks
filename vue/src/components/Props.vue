@@ -1,16 +1,15 @@
-<script lang='ts'>
-import Nested2 from './Nested/Nested2.vue'
+<script lang="ts">
+import CustomAnswer from "./child/CustomAnswer.vue";
 
 export default {
-	components: {
-		Nested2
-	}
-}
+  components: {
+    CustomAnswer,
+  },
+};
 </script>
 
 <template>
-<div>
-	<Nested2 answer="42" />
-</div>
-
+  <div>
+    <CustomAnswer answer="42" />
+  </div>
 </template>
