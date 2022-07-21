@@ -200,7 +200,7 @@ export default {
 .links {
   display: flex;
   flex-direction: column;
-  background-color: rgba(67, 72, 229, 0.4);
+  background-color: #B4B6F5;
   padding: 16px 8px;
   height: 100vh;
   overflow-y: scroll;
@@ -223,6 +223,11 @@ export default {
   background-color: rgb(37, 33, 151);
   color: rgba(255, 255, 255, 0.8);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.links button:focus,
+button:focus-visible {
+  outline: none;
 }
 
 .close {
@@ -257,7 +262,7 @@ export default {
 .heading {
   font-size: 2.5rem;
   font-weight: 800;
-  color: rgb(0, 0, 92);
+  /*color: rgb(0, 0, 92);*/
 }
 
 @media screen and (max-width: 480px) {
