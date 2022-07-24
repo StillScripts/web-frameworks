@@ -11,7 +11,7 @@ import {
   Components,
   componentsList,
   getComponentTitle,
-} from "./utils/components";
+} from "../utils/components";
 
 export default {
   components: {
@@ -118,26 +118,7 @@ export default {
         </div>
       </div>
       <h1 class="heading">{{ getComponentTitle(currentComponent) }}</h1>
-      <HelloWorld v-if="currentComponent === componentsEnum.HelloWorld" />
-      <Styling v-if="currentComponent === componentsEnum.Styling" />
-      <NestingComponents
-        v-if="currentComponent === componentsEnum.NestingComponents"
-      />
-      <Props v-if="currentComponent === componentsEnum.Props" />
-      <div v-if="currentComponent === componentsEnum.HTML">To be completed</div>
-      <BasicVariables
-        v-if="currentComponent === componentsEnum.BasicVariables"
-      />
-      <DependentVariables
-        v-if="currentComponent === componentsEnum.DependentVariables"
-      />
-      <ConditionalRendering
-        v-if="currentComponent === componentsEnum.ConditionalRendering"
-      />
-      <ListLooping v-if="currentComponent === componentsEnum.ListLooping" />
-      <div v-if="currentComponent === componentsEnum.TypingAnimation">
-        To be completed
-      </div>
+      <div>component</div>
     </div>
   </div>
 </template>
