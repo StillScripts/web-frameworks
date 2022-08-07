@@ -40,19 +40,19 @@ const NavIcon = () => (
 );
 
 interface LayoutProps {
+  children: React.ReactNode;
   currentComponent: Components;
   menuOpen: boolean;
-  action: (option?: Components) => void;
-  handleSwitch: (newComponent?: Components) => void;
-  children: React.ReactNode;
+  close: () => void;
+  switchComponent: (newComponent?: Components) => void;
 }
 
 const Layout = ({
   children,
   currentComponent,
   menuOpen,
-  action,
-  handleSwitch,
+  close,
+  switchComponent,
 }: LayoutProps) => {
   const checkActiveBackground = useCallback(
     (component: Components): CSSProperties => {
@@ -66,7 +66,7 @@ const Layout = ({
   return (
     <div className={styles.container}>
       <nav className={styles.links} style={menuOpen ? { display: "flex" } : {}}>
-        <div className={styles.close} onClick={() => handleSwitch()}>
+        <div className={styles.close} onClick={() => switchComponent()}>
           <CloseIcon />
         </div>
         {componentsList.map((component) => (
@@ -74,7 +74,7 @@ const Layout = ({
             key={`link-${component}`}
             type="button"
             style={checkActiveBackground(component)}
-            onClick={() => handleSwitch(component)}
+            onClick={() => switchComponent(component)}
           >
             {getComponentTitle(component)}
           </button>
@@ -85,7 +85,7 @@ const Layout = ({
         style={menuOpen ? { display: "none" } : {}}
       >
         <div className={styles.mobile}>
-          <div onClick={() => action()}>
+          <div onClick={() => close()}>
             <NavIcon />
           </div>
         </div>

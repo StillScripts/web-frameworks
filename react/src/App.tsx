@@ -71,7 +71,7 @@ export const getComponentTitle = (component: Components): string => {
   }
 };
 
-const Home = () => {
+const App = () => {
   const [currentComponent, setCurrentComponent] = useState<Components>(
     Components.HelloWorld
   );
@@ -85,9 +85,9 @@ const Home = () => {
   return (
     <Layout
       currentComponent={currentComponent}
-      action={() => setMenuOpen(false)}
-      handleSwitch={handleSwitch}
       menuOpen={menuOpen}
+      close={() => setMenuOpen(false)}
+      switchComponent={handleSwitch}
     >
       <div>
         {currentComponent === Components.HelloWorld ? (
@@ -116,4 +116,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default App;
