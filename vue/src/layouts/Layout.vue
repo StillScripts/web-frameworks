@@ -1,12 +1,12 @@
 <script lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
-import Styling from "./components/Styling.vue";
-import Props from "./components/Props.vue";
-import DependentVariables from "./components/DependentVariables.vue";
-import ConditionalRendering from "./components/ConditionalRendering.vue";
-import ListLooping from "./components/ListLooping.vue";
-import NestingComponents from "./components/NestingComponents.vue";
-import BasicVariables from "./components/BasicVariables.vue";
+import HelloWorld from "../components/HelloWorld.vue";
+import Styling from "../components/Styling.vue";
+import Props from "../components/Props.vue";
+import DependentVariables from "../components/DependentVariables.vue";
+import ConditionalRendering from "../components/ConditionalRendering.vue";
+import ListLooping from "../components/ListLooping.vue";
+import NestingComponents from "../components/NestingComponents.vue";
+import BasicVariables from "../components/BasicVariables.vue";
 import {
   Components,
   componentsList,
@@ -118,7 +118,26 @@ export default {
         </div>
       </div>
       <h1 class="heading">{{ getComponentTitle(currentComponent) }}</h1>
-      <div>component</div>
+      <HelloWorld v-if="currentComponent === componentsEnum.HelloWorld" />
+      <Styling v-if="currentComponent === componentsEnum.Styling" />
+      <NestingComponents
+        v-if="currentComponent === componentsEnum.NestingComponents"
+      />
+      <Props v-if="currentComponent === componentsEnum.Props" />
+      <div v-if="currentComponent === componentsEnum.HTML">To be completed</div>
+      <BasicVariables
+        v-if="currentComponent === componentsEnum.BasicVariables"
+      />
+      <DependentVariables
+        v-if="currentComponent === componentsEnum.DependentVariables"
+      />
+      <ConditionalRendering
+        v-if="currentComponent === componentsEnum.ConditionalRendering"
+      />
+      <ListLooping v-if="currentComponent === componentsEnum.ListLooping" />
+      <div v-if="currentComponent === componentsEnum.TypingAnimation">
+        To be completed
+      </div>
     </div>
   </div>
 </template>
