@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback, useState } from "react";
-import { Components, getComponentTitle, componentsList } from "../App";
+import { Components, getComponentTitle, componentsList } from "../utils/components";
 //import { NavbarProps } from "../Navbar/Navbar";
 import styles from "./Layout.module.css";
 
