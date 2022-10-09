@@ -1,4 +1,4 @@
-# Example Mitosis project
+# Simple Mitosis project
 
 ### Setup
 
