@@ -1,6 +1,7 @@
 {
   "name": "@builder.io/basic-example",
   "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "mitosis": "mitosis build",
     "build": "yarn run mitosis",
@@ -8,13 +9,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "@builder.io/mitosis": "workspace:*",
-    "@builder.io/mitosis-cli": "workspace:*",
+    "@builder.io/mitosis": "^0.0.71",
+    "@builder.io/mitosis-cli": "^0.0.31",
     "node-fetch": "^2.6.1",
     "seedrandom": "^3.0.5"
   },
   "devDependencies": {
-    "@builder.io/eslint-plugin-mitosis": "workspace:*",
+    "@builder.io/eslint-plugin-mitosis": "^0.0.10",
     "@types/jest": "^27.4.0",
     "@types/node-fetch": "^2.5.12",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
