@@ -4,10 +4,11 @@ import react from "@astrojs/react";
 import solidJs from "@astrojs/solid-js";
 import vue from "@astrojs/vue";
 import svelte from "@astrojs/svelte";
-
 import preact from "@astrojs/preact";
+
+import lit from "@astrojs/lit";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), solidJs(), vue(), svelte(), preact()]
+  integrations: [tailwind(), react(), solidJs(), vue(), svelte(), preact(), lit()]
 });

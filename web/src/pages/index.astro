@@ -5,17 +5,24 @@ import Vue from "../components/Vue.vue";
 import Preact from "../components/Preact";
 import React from "../components/React";
 import Solid from "../components/Solid";
+import { Lit } from "../components/Lit.js";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="7 in 1 | JavaScript Frameworks">
   <main class="m-auto p-6 max-w-screen-sm">
-    <h1 class="font-extrabold text-5xl">Welcome to <span class="text-gradient">Astro</span></h1>
-    <ul role="list" class="link-card-grid mt-4 font-semibold">
-      <li><React client:load /></li>
-      <li><Vue client:load /></li>
-      <li><Solid client:load /></li>
-      <li><Svelte client:load /></li>
-      <li><Preact client:load /></li>
+    <h1 class="mt-4 font-extrabold text-center text-5xl">
+      Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-500">Astro</span>
+    </h1>
+    <ul
+      role="list"
+      class="mt-6 p-4 grid grid-cols-2 gap-2 text-center font-semibold"
+    >
+      <li class="text-blue-500"><React client:load /></li>
+      <li class="text-green-600"><Vue client:load /></li>
+      <li class="text-indigo-700"><Solid client:load /></li>
+      <li class="text-orange-600"><Svelte client:load /></li>
+      <li class="text-purple-600"><Preact client:load /></li>
+      <li class="text-teal-800"><Lit client:load /></li>
     </ul>
   </main>
 </Layout>
