@@ -11,6 +11,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@analogjs/astro-angular": "^0.1.0-beta.3",
+    "@angular-devkit/build-angular": "^14.0.0",
+    "@angular/animations": "^14.0.0",
+    "@angular/common": "^14.0.0",
+    "@angular/compiler": "^14.0.0",
+    "@angular/compiler-cli": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/language-service": "^14.0.0",
+    "@angular/platform-browser": "^14.0.0",
+    "@angular/platform-browser-dynamic": "^14.0.0",
+    "@angular/platform-server": "^14.0.0",
     "@astrojs/lit": "^1.0.1",
     "@astrojs/preact": "^1.1.1",
     "@astrojs/react": "^1.1.4",
@@ -24,9 +35,12 @@
     "preact": "^10.6.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "rxjs": "^7.5.0",
     "solid-js": "^1.4.3",
     "svelte": "^3.46.4",
     "tailwindcss": "^3.0.24",
-    "vue": "^3.2.30"
+    "tslib": "^2.0.0",
+    "vue": "^3.2.30",
+    "zone.js": "~0.11.4"
   }
 }

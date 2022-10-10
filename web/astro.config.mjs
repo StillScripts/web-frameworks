@@ -5,10 +5,10 @@ import solidJs from "@astrojs/solid-js";
 import vue from "@astrojs/vue";
 import svelte from "@astrojs/svelte";
 import preact from "@astrojs/preact";
-
 import lit from "@astrojs/lit";
+import analogjsangular from "@analogjs/astro-angular";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), solidJs(), svelte(), preact(), lit(), vue()]
+  integrations: [tailwind(), react(), solidJs(), svelte(), preact(), lit(), vue(), analogjsangular()]
 });
