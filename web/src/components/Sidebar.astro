@@ -1,0 +1,97 @@
+---
+export enum Components {
+  HelloWorld,
+  Styling,
+  NestingComponents,
+  Props,
+  HTML,
+  BasicVariables,
+  DependentVariables,
+  ConditionalRendering,
+  ListLooping,
+  TypingAnimation,
+}
+
+// A list of each component based on the enum options above
+export const componentsList: Components[] = [
+  Components.HelloWorld,
+  Components.Styling,
+  Components.NestingComponents,
+  Components.Props,
+  Components.HTML,
+  Components.BasicVariables,
+  Components.DependentVariables,
+  Components.ConditionalRendering,
+  Components.ListLooping,
+  //Components.TypingAnimation,
+];
+
+/**
+ * Method which converts an option of the Components enum into
+ * a string to display a title for a component.
+ * @param {Components} component
+ * @returns {string}
+ */
+export const getComponentTitle = (component: Components): string => {
+  switch (component) {
+    case Components.HelloWorld:
+      return "Hello World";
+    case Components.Styling:
+      return "Styling";
+    case Components.NestingComponents:
+      return "Nesting Components";
+    case Components.Props:
+      return "Passing Props";
+    case Components.HTML:
+      return "HTML Tags";
+    case Components.BasicVariables:
+      return "Basic Variables";
+    case Components.DependentVariables:
+      return "Dependent Variables";
+    case Components.ConditionalRendering:
+      return "Conditional Rendering";
+    case Components.ListLooping:
+      return "List Looping";
+    case Components.TypingAnimation:
+      return "Typing Animation";
+  }
+};
+
+export interface Props {
+  component: Components;
+}
+const { component } = Astro.props;
+---
+
+<div class="h-screen bg-indigo-100">
+  <div class="flex flex-grow flex-col overflow-y-auto pt-5">
+    <div class="flex flex-shrink-0 items-center px-4">
+      <img
+        class="h-8 w-auto"
+        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300"
+        alt="Your Company"
+      />
+    </div>
+    <nav>
+      <ul class="mt-5 flex flex-1 flex-col">
+        {
+          componentsList.map((c) => (
+            <li>
+              <a
+                href="#"
+                class={
+                  "block border-l-4 p-2 px-3 py-2 text-base font-medium text-gray-900 " +
+                  (component === c
+                    ? "border-l-indigo-700 bg-indigo-300"
+                    : "border-transparent bg-indigo-100 transition-colors duration-200 hover:border-l-indigo-600 hover:bg-indigo-200 focus:border-l-indigo-700 focus:bg-indigo-300")
+                }
+              >
+                {getComponentTitle(c)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import Preact from "../components/Preact";
 import React from "../components/React";
 import Solid from "../components/Solid";
 import { Lit } from "../components/Lit";
+import BasicVariables from "../components/svelte/BasicVariables.svelte"
 ---
 
 <Layout title="7 in 1 | JavaScript Frameworks">
@@ -24,5 +25,8 @@ import { Lit } from "../components/Lit";
       <li class="text-purple-700"><Preact client:load /></li>
       <li class="text-teal-800"><Lit client:load /></li>
     </ul>
+    <div>
+      <BasicVariables client:load />
+    </div>
   </main>
 </Layout>

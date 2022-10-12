@@ -1,67 +1,13 @@
 ---
-export enum Components {
-  HelloWorld,
-  Styling,
-  NestingComponents,
-  Props,
-  HTML,
-  BasicVariables,
-  DependentVariables,
-  ConditionalRendering,
-  ListLooping,
-  TypingAnimation,
-}
-
-// A list of each component based on the enum options above
-export const componentsList: Components[] = [
-  Components.HelloWorld,
-  Components.Styling,
-  Components.NestingComponents,
-  Components.Props,
-  Components.HTML,
-  Components.BasicVariables,
-  Components.DependentVariables,
-  Components.ConditionalRendering,
-  Components.ListLooping,
-  Components.TypingAnimation,
-];
-
-/**
- * Method which converts an option of the Components enum into
- * a string to display a title for a component.
- * @param {Components} component
- * @returns {string}
- */
-export const getComponentTitle = (component: Components): string => {
-  switch (component) {
-    case Components.HelloWorld:
-      return "Hello World";
-    case Components.Styling:
-      return "Styling";
-    case Components.NestingComponents:
-      return "Nesting Components";
-    case Components.Props:
-      return "Passing Props";
-    case Components.HTML:
-      return "HTML Tags";
-    case Components.BasicVariables:
-      return "Basic Variables";
-    case Components.DependentVariables:
-      return "Dependent Variables";
-    case Components.ConditionalRendering:
-      return "Conditional Rendering";
-    case Components.ListLooping:
-      return "List Looping";
-    case Components.TypingAnimation:
-      return "Typing Animation";
-  }
-};
+import Sidebar, { Components } from "../components/Sidebar.astro";
 
 export interface Props {
   title: string;
+  framework?: "React" | "Svelte" | "Solid";
+  component?: Components;
 }
 
-const { title } = Astro.props;
+const { title, component = Components.HelloWorld, } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -77,22 +23,9 @@ const { title } = Astro.props;
       content="Components from all JavaScript frameworks contained in one awesome Astro.js website."
     />
   </head>
-  <body>
-    <div class="flex">
-      <div>
-        <p>React</p>
-        <nav>
-          <ul>
-            {
-              componentsList.map((component) => (
-                <li class="block p-2 cursor-pointer border-l-4 border-transparent hover:border-gray-800 bg-gray-100 hover:bg-gray-200">
-                  {getComponentTitle(component)}
-                </li>
-              ))
-            }
-          </ul>
-        </nav>
-      </div>
+  <body class="min-h-screen w-full bg-gray-50">
+    <div class="flex h-full w-full">
+      <Sidebar component={component} />
       <slot />
     </div>
   </body>
