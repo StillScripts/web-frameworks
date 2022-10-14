@@ -1,10 +1,7 @@
 ---
-import {
-  componentsList,
-  getComponentTitle,
-} from "../../utils/components";
+import { componentsList } from "../../utils/components";
 import Layout from "../../layouts/Layout.astro";
-import SvelteComponents from "../../components/svelte/index.svelte"
+import SvelteComponents from "../../components/svelte/index.svelte";
 
 export function getStaticPaths() {
   return componentsList.map((component) => ({ params: { id: component } }));
@@ -13,27 +10,23 @@ export function getStaticPaths() {
 const { id } = Astro.params;
 ---
 
-<Layout title="Svelte components" framework="Svelte" component={parseInt(id as string)}>
-  <main class="mx-auto p-6 pt-20 max-w-screen-sm">
-    <div class="text-center">
-      <p class="text-base uppercase font-semibold text-indigo-600">Svelte</p>
-      <h1
-        class="mt-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl"
-      >
-        {getComponentTitle(parseInt(id as string))}
-      </h1>
-      <div
-        class="my-5 p-8 inline-block border border-gray-200 shadow-lg rounded-lg"
-      >
-        <SvelteComponents currentComponent={parseInt(id as string)} client:idle />
-      </div>
-      <a
-        href="#"
-        class="block mt-3 text-base font-medium text-indigo-600 hover:text-indigo-500"
-      >
-        View source code
-        <span aria-hidden="true"> &rarr;</span>
-      </a>
+<Layout
+  title="Svelte components"
+  framework="Svelte"
+  component={parseInt(id as string)}
+>
+  <div class="mx-auto p-6 text-center max-w-screen-sm">
+    <div
+      class="my-5 p-8 inline-block border border-gray-200 shadow-lg rounded-lg"
+    >
+      <SvelteComponents currentComponent={parseInt(id as string)} client:idle />
     </div>
-  </main>
+    <a
+      href="#"
+      class="block mt-3 text-base font-medium text-indigo-600 hover:text-indigo-500"
+    >
+      View source code {parseInt(id as string)+1}
+      <span aria-hidden="true"> &rarr;</span>
+    </a>
+  </div>
 </Layout>
