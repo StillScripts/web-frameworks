@@ -8,7 +8,7 @@ type Rainbow =
   | "yellow"
   | "green"
   | "blue"
-  | "indigo"
+  | "sky"
   | "violet";
 const rainbowColors: Rainbow[] = [
   "red",
@@ -16,7 +16,7 @@ const rainbowColors: Rainbow[] = [
   "yellow",
   "green",
   "blue",
-  "indigo",
+  "sky",
   "violet",
 ];
 const rainbowWords = rainbowColors.map((word) => `${word}...`);

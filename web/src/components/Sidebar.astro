@@ -7,12 +7,12 @@ export interface Props {
 const { component } = Astro.props;
 ---
 
-<div class="h-screen bg-indigo-100 border-r border-gray-300">
+<div class="h-screen bg-blue-100 border-r border-gray-300">
   <div class="flex flex-grow flex-col overflow-y-auto pt-5">
     <div class="flex flex-shrink-0 items-center px-4">
       <img
         class="h-8 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300"
+        src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=300"
         alt="Your Company"
       />
     </div>
@@ -26,8 +26,8 @@ const { component } = Astro.props;
                 class={
                   "block p-2 mt-1 px-3 py-2 text-base border-l-4 rounded-r-md font-medium text-gray-900 " +
                   (component === c
-                    ? "border-l-indigo-700 bg-indigo-300"
-                    : "border-transparent bg-indigo-100 transition-colors duration-200 hover:border-l-indigo-600 hover:bg-indigo-200 focus:border-l-indigo-700 focus:bg-indigo-300")
+                    ? "border-l-blue-800 bg-blue-300"
+                    : "border-transparent bg-blue-100 transition-colors duration-200 hover:border-l-blue-700 hover:bg-blue-200 focus:border-l-blue-800 focus:bg-blue-300")
                 }
               >
                 {getComponentTitle(c)}

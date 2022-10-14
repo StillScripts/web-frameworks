@@ -47,7 +47,7 @@ export default function Example() {
           <Popover.Button
             className={classNames(
               open ? "text-gray-900" : "text-gray-500",
-              "group inline-flex items-center rounded-md text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              "group inline-flex items-center rounded-md text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
             )}
           >
             <span>Select Framework</span>
@@ -82,7 +82,7 @@ export default function Example() {
                     <a
                       key={item.id}
                       href="#"
-                      className="-m-3 flex items-start rounded-lg p-3 transition duration-150 ease-in-out hover:bg-indigo-50"
+                      className="-m-3 flex items-start rounded-lg p-3 transition duration-150 ease-in-out hover:bg-sky-50"
                     >
                       <span className="flex items-center">
                         <img
