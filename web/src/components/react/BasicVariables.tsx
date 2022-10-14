@@ -1,7 +1,7 @@
-import type React from "react";
+/** @jsxImportSource react */
 import { useState } from "react";
 
-const BasicVariables: React.FC = () => {
+const BasicVariables = () => {
   const [count, setCount] = useState(0);
 
   function handleClick() {

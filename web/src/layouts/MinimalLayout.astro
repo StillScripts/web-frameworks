@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+}
+
+const {
+  title = "Web Frameworks - Components in the most popular JavaScript frameworks",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Explore a variety of simple components in each of the major all JavaScript frameworks, contained in one magical Astro.js website."
+    />
+  </head>
+  <body class="min-h-screen w-full bg-gray-100"><slot/></body>
+</html>

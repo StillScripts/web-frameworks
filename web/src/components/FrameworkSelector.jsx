@@ -1,45 +1,37 @@
 /** @jsxImportSource react */
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
+import { classNames } from "../utils/helpers";
 
-const people = [
+const frameworks = [
   {
-    id: 1,
-    name: "Wade Cooper",
+    name: "React",
     avatar:
       "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    id: 2,
-    name: "Arlene Mccoy",
+    name: "Vue",
     avatar:
       "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    id: 3,
-    name: "Devon Webb",
+    name: "Svelte",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
   },
   {
-    id: 4,
-    name: "Tom Cook",
+    name: "Solid",
     avatar:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    id: 5,
-    name: "Tanya Fox",
+    name: "Preact",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
 ];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Example() {
+export default function FrameworkSelector({ component }) {
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -78,19 +70,19 @@ export default function Example() {
             <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-36 -translate-x-1/2 transform px-2 sm:px-0">
               <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="relative grid gap-4 bg-white px-3 py-4 sm:gap-6 sm:p-4">
-                  {people.map((item) => (
+                  {frameworks.map((framework, id) => (
                     <a
-                      key={item.id}
-                      href="#"
+                      key={framework.name + id}
+                      href={`/${framework.name.toLowerCase()}/${component}`}
                       className="-m-3 flex items-start rounded-lg p-3 transition duration-150 ease-in-out hover:bg-sky-50"
                     >
                       <span className="flex items-center">
                         <img
-                          src={item.avatar}
-                          alt={item.name}
+                          src={framework.avatar}
+                          alt={framework.name}
                           className="h-6 w-6 flex-shrink-0 rounded-full"
                         />
-                        <span className="ml-3 block">React</span>
+                        <span className="ml-3 block">{framework.name}</span>
                       </span>
                     </a>
                   ))}

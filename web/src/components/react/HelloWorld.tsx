@@ -1,4 +1,5 @@
-const HelloWorld: React.FC = () => {
+/** @jsxImportSource react */
+const HelloWorld = () => {
   return <p>Hello world!</p>;
 };
 

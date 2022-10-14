@@ -1,6 +1,7 @@
+/** @jsxImportSource react */
 import { useEffect, useState } from "react";
 
-const DependentVariables: React.FC = () => {
+const DependentVariables = () => {
   const [count, setCount] = useState(1);
   const [doubled, setDoubled] = useState(count * 2);
   const [quadrupled, setQuadrupled] = useState(doubled * 2);

@@ -6,7 +6,7 @@
   import HelloWorld from "./HelloWorld.svelte";
   import HTML from "./HTML.svelte";
   import ListLooping from "./ListLooping.svelte";
-  import PassingProps from "./PassingProps.svelte";
+  import Props from "./Props.svelte";
   import Styling from "./Styling.svelte";
 
   export let currentComponent: Components = Components.HelloWorld;
@@ -18,7 +18,7 @@
   {:else if currentComponent === Components.Styling}
     <Styling />
   {:else if currentComponent === Components.Props}
-    <PassingProps />
+    <Props />
   {:else if currentComponent === Components.HTML}
     <HTML />
   {:else if currentComponent === Components.BasicVariables}
