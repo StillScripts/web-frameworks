@@ -100,7 +100,7 @@
     babel-plugin-module-resolver "^4.1.0"
     preact-render-to-string "^5.2.0"
 
-"@astrojs/prism@^1.0.0":
+"@astrojs/prism@^1.0.0", "@astrojs/prism@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@astrojs/prism/-/prism-1.0.1.tgz#a7a778f9e3814885f587d8074a15452947ab4252"
   integrity sha512-HxEFslvbv+cfOs51q/C7aMVFuW3EAGg0d1xXU/0e/QeScDzfrp5Ra4SOb8mV082SgENVjtVvet4zR84t3at4VQ==

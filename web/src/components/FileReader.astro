@@ -1,0 +1,11 @@
+---
+// Example: import the "fs/promises" builtin from Node.js
+import fs from "node:fs/promises";
+import { Prism } from "@astrojs/prism";
+
+const url = new URL("./svelte/BasicVariables.svelte", import.meta.url);
+const json = await fs.readFile(url, "utf-8");
+console.log(json);
+---
+
+<Prism lang="jsx" code={json} />

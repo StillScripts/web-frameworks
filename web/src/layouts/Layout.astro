@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar.astro";
 import FrameworkSelector from "../components/FrameworkSelector.jsx";
 import { Components, Framework, getComponentTitle } from "../utils/components";
 import MinimalLayout from "./MinimalLayout.astro";
+import FileReader from "../components/FileReader.astro";
 
 export interface Props {
   title: string;
@@ -51,6 +52,7 @@ const {
               View source code
               <span aria-hidden="true"> &rarr;</span>
             </a>
+            <FileReader />
           </div>
         </div>
       </div>

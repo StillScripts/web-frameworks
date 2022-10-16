@@ -44,7 +44,7 @@ export default function FrameworkSelector({ component }) {
           >
             <span>Select Framework</span>
             <svg
-              class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
+              className="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"

@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/lit": "^1.0.1",
     "@astrojs/preact": "^1.1.1",
+    "@astrojs/prism": "^1.0.1",
     "@astrojs/react": "^1.1.4",
     "@astrojs/solid-js": "^1.1.1",
     "@astrojs/svelte": "^1.0.1",
