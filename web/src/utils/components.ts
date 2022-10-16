@@ -37,7 +37,7 @@ export const getComponentTitle = (component: Components): string => {
     case Components.Styling:
       return "Styling";
     case Components.Props:
-      return "Passing Props";
+      return "Props";
     case Components.HTML:
       return "HTML Tags";
     case Components.BasicVariables:

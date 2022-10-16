@@ -1,0 +1,31 @@
+---
+import ReactComponents from "./react/ReactComponents";
+import SvelteComponents from "./svelte/SvelteComponents.svelte";
+import SolidComponents from "./solid/SolidComponents";
+import type { Components, Framework } from "../utils/components";
+
+interface Props {
+  component: Components;
+  framework: Framework;
+}
+
+const { component, framework } = Astro.props;
+---
+
+<div class="mt-2 p-5 inline-block border border-gray-200 shadow-lg rounded-lg">
+  {
+    framework === "React" && (
+      <ReactComponents currentComponent={component} client:visible />
+    )
+  }
+  {
+    framework === "Solid" && (
+      <SolidComponents currentComponent={component} client:visible />
+    )
+  }
+  {
+    framework === "Svelte" && (
+      <SvelteComponents currentComponent={component} client:visible />
+    )
+  }
+</div>

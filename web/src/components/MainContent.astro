@@ -1,0 +1,103 @@
+---
+import { Components, Framework, getComponentTitle } from "../utils/components";
+import DisplayComponent from "./DisplayComponent.astro";
+import FileReader from "./FileReader.astro";
+import FrameworkSelector from "./FrameworkSelector";
+
+export interface Props {
+  framework?: Framework;
+  component?: Components;
+}
+
+const { component = Components.HelloWorld, framework = "React" } = Astro.props;
+---
+
+<main class="pl-0 sm:pl-56 w-full min-h-screen flex flex-col justify-between">
+  <!-- Page Header -->
+  <div
+    class="w-full mx-auto border-b border-gray-300 leading-7 max-w-7xl py-6 px-4 sm:px-6 md:px-8"
+  >
+    <div
+      class="text-center md:text-left md:flex md:items-center md:justify-between"
+    >
+      <div class="min-w-0 flex-1">
+        <h2 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+          {getComponentTitle(component)}
+        </h2>
+      </div>
+
+      <div><FrameworkSelector component={component} client:load /></div>
+    </div>
+  </div>
+
+  <!-- Component and Code -->
+  <div class="mt-6 w-full mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+    <div class="py-4">
+      <div class="grid grid-cols-12 space-x-3">
+        <div class="col-span-12 lg:col-span-3 xl:col-span-4">
+          <DisplayComponent component={component} framework={framework} />
+        </div>
+        <div class="col-span-12 lg:col-span-9 xl:col-span-8">
+          <FileReader />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination Links -->
+  <div class="w-full mx-auto max-w-7xl py-6 px-4 sm:px-6 md:px-8">
+    <div class="flex items-center justify-between">
+      {
+        component !== Components.HelloWorld ? (
+          <a
+            href={`/svelte/${component - 1}`}
+            class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+          >
+            <svg
+              class="mr-1 h-5 w-5 text-gray-400"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            {getComponentTitle(component - 1)}
+          </a>
+        ) : (
+          <div />
+        )
+      }
+
+      {
+        component !== Components.ListLooping ? (
+          <a
+            href={`/svelte/${component + 1}`}
+            class="inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+          >
+            {getComponentTitle(component + 1)}{" "}
+            <svg
+              class="ml-1 h-5 w-5 text-gray-400"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        ) : (
+          <div />
+        )
+      }
+    </div>
+  </div>
+</main>
