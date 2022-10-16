@@ -1,0 +1,19 @@
+---
+import { componentsList } from "../../utils/components";
+import Layout from "../../layouts/Layout.astro";
+import ReactComponents from "../../components/react/ReactComponents";
+
+export function getStaticPaths() {
+  return componentsList.map((component) => ({ params: { id: component } }));
+}
+
+const { id } = Astro.params;
+---
+
+<Layout
+  title="React components"
+  framework="React"
+  component={parseInt(id as string)}
+>
+  <ReactComponents currentComponent={parseInt(id as string)} client:idle />
+</Layout>

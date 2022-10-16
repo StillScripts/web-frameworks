@@ -1,4 +1,5 @@
 /** @jsxImportSource react */
+import React from "react";
 
 const cats = [
   { id: "J---aiyznGQ", name: "Keyboard Cat" },

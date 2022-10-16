@@ -1,3 +1,4 @@
+import React from "react";
 import type { CSSProperties } from "react";
 
 const styles: CSSProperties = {

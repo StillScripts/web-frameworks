@@ -1,4 +1,6 @@
 /** @jsxImportSource react */
+import React from "react";
+
 const string = `here's some <strong>HTML!!!</strong>`;
 
 const HTML = () => (

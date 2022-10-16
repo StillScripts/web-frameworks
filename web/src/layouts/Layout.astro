@@ -1,21 +1,25 @@
 ---
 import Sidebar from "../components/Sidebar.astro";
 import FrameworkSelector from "../components/FrameworkSelector.jsx";
-import { Components, getComponentTitle } from "../utils/components";
+import { Components, Framework, getComponentTitle } from "../utils/components";
 import MinimalLayout from "./MinimalLayout.astro";
 
 export interface Props {
   title: string;
-  framework?: "React" | "Svelte" | "Solid";
+  framework?: Framework;
   component?: Components;
 }
 
-const { title, component = Components.HelloWorld } = Astro.props;
+const {
+  title,
+  component = Components.HelloWorld,
+  framework = "React",
+} = Astro.props;
 ---
 
 <MinimalLayout title={title}>
   <div class="flex h-full w-full">
-    <Sidebar component={component} />
+    <Sidebar component={component} framework={framework} />
     <main class="w-full min-h-full flex flex-col justify-between">
       <div
         class="w-full mx-auto border-b border-gray-300 leading-7 max-w-7xl py-6 px-4 sm:px-6 md:px-8"

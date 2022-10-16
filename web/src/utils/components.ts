@@ -1,3 +1,5 @@
+export type Framework = "React" | "Solid" | "Svelte" | "Vue";
+
 export enum Components {
   HelloWorld,
   Styling,
