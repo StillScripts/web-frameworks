@@ -12,7 +12,7 @@ interface Props {
 const { component, framework } = Astro.props;
 ---
 
-<div class="mt-2 p-5 inline-block border border-gray-200 shadow-lg rounded-lg">
+<div class="mt-4 p-5 inline-block border border-gray-200 shadow-lg rounded-lg">
   {
     framework === "React" && (
       <ReactComponents currentComponent={component} client:visible />

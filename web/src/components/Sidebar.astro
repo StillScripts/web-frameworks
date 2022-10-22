@@ -1,5 +1,6 @@
 ---
-import { Components, componentsList, Framework, getComponentTitle, getLogo } from '../utils/components';
+import { Components, componentsList, getComponentTitle, getLogo } from '../utils/components';
+import type { Framework } from '../utils/components';
 
 export interface Props {
   component: Components;
@@ -14,7 +15,7 @@ const { component, framework } = Astro.props;
       <img
         class="h-8 w-auto"
         src={getLogo(framework)}
-        alt={`${Framework} logo`}
+        alt={`${framework} logo`}
       />
       <span class='ml-2 font-medium text-lg'>{framework}</span>
     </div>

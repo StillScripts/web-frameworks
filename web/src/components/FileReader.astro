@@ -14,12 +14,23 @@ interface Props {
   framework: Framework;
 }
 
-const {component, framework} = Astro.props
+const { component, framework } = Astro.props;
 
 const fileName = getFilename(component) + getFileExtension(framework);
-
-const url = new URL(`./${framework.toLowerCase()}/${fileName}`, import.meta.url);
-const fileCode = await fs.readFile(url, "utf-8");
+let fileCode = 'console.log("Something went wrong!")';
+try {
+  //const mode = import.meta.env.MODE
+  //console.log(mode)
+  const url = new URL(
+    `./${framework.toLowerCase()}/${fileName}`,
+    import.meta.url
+  );
+  fileCode = await fs.readFile(url, "utf-8");
+} catch (error) {
+  console.log(error);
+}
 ---
 
-<Prism lang="jsx" code={fileCode} />
+<div class="pt-2">
+  <Prism lang="jsx" code={fileCode} />
+</div>

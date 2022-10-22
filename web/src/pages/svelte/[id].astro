@@ -1,8 +1,7 @@
 ---
 import { componentsList } from "../../utils/components";
 import Layout from "../../layouts/Layout.astro";
-import DisplayComponent from "../../components/DisplayComponent.astro";
-import FileReader from "../../components/FileReader.astro";
+import SvelteComponents from "../../components/svelte/SvelteComponents.svelte";
 
 export function getStaticPaths() {
   return componentsList.map((component) => ({ params: { id: component } }));
@@ -16,13 +15,5 @@ const { id } = Astro.params;
   framework="Svelte"
   component={parseInt(id as string)}
 >
-  <div class="w-full grid grid-cols-8">
-    <div class="col-span-2">
-      <DisplayComponent
-        component={parseInt(id as string)}
-        framework="Svelte"
-      />
-    </div>
-    <div class="col-span-6"><FileReader /></div>
-  </div>
+  <SvelteComponents currentComponent={parseInt(id as string)} client:idle />
 </Layout>

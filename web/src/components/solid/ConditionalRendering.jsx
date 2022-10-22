@@ -1,4 +1,3 @@
-/** @jsxImportSource solid-js */
 import { createSignal, Match, Switch } from "solid-js";
 
 const ConditionalRendering = () => {
