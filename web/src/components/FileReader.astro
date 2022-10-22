@@ -2,8 +2,23 @@
 // Example: import the "fs/promises" builtin from Node.js
 import fs from "node:fs/promises";
 import { Prism } from "@astrojs/prism";
+import {
+  getFilename,
+  getFileExtension,
+  Components,
+  Framework,
+} from "../utils/components";
 
-const url = new URL("./svelte/BasicVariables.svelte", import.meta.url);
+interface Props {
+  component: Components;
+  framework: Framework;
+}
+
+const {component, framework} = Astro.props
+
+const fileName = getFilename(component) + getFileExtension(framework);
+
+const url = new URL(`./${framework.toLowerCase()}/${fileName}`, import.meta.url);
 const fileCode = await fs.readFile(url, "utf-8");
 ---
 

@@ -1,8 +1,5 @@
-/** @jsxImportSource react */
 import React from "react";
 
-const HelloWorld = () => {
-  return <p>Hello world!</p>;
-};
+const HelloWorld = () => <p>Hello world!</p>;
 
 export default HelloWorld;

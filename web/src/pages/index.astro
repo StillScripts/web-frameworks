@@ -9,7 +9,7 @@ import { Lit } from "../components/Lit";
 ---
 
 <MinimalLayout title="7 in 1 | JavaScript Frameworks">
-  <main class="m-auto p-6 max-w-screen-sm">
+  <main class="m-auto p-6 max-w-screen-sm bg-gray-200">
     <h1 class="mt-4 font-extrabold text-center text-5xl">
       Welcome to <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-500"
@@ -20,12 +20,12 @@ import { Lit } from "../components/Lit";
       role="list"
       class="mt-6 p-4 grid grid-cols-2 gap-2 text-center font-semibold"
     >
-      <li class="text-blue-600"><React client:load /></li>
-      <li class="text-green-700"><Vue client:load /></li>
-      <li class="text-sky-700"><Solid client:load /></li>
-      <li class="text-orange-600"><Svelte client:load /></li>
-      <li class="text-purple-700"><Preact client:load /></li>
-      <li class="text-teal-800"><Lit client:load /></li>
+      <li class="text-react"><React client:load /></li>
+      <li class="text-vue"><Vue client:load /></li>
+      <li class="text-solid"><Solid client:load /></li>
+      <li class="text-svelte"><Svelte client:load /></li>
+      <li class="text-preact"><Preact client:load /></li>
+      <li class="text-lit"><Lit client:load /></li>
     </ul>
   </main>
 </MinimalLayout>

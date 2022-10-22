@@ -1,4 +1,4 @@
-export type Framework = "React" | "Solid" | "Svelte" | "Vue";
+export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit";
 
 export enum Components {
   HelloWorld,
@@ -94,5 +94,18 @@ export const getFileExtension = (framework: Framework): string => {
       return ".vue";
     default:
       return ".jsx";
+  }
+};
+
+/**
+ * Method which gets the path to the logo of a specific file.
+ * @param {Framework} framework
+ * @returns {string}
+ */
+export const getLogo = (framework: Framework): string => {
+  if (framework === "Preact") {
+    return "/logos/preact-logo.png";
+  } else {
+    return `/logos/${framework.toLowerCase()}-icon.svg`;
   }
 };

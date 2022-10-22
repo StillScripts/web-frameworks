@@ -2,7 +2,7 @@ import React from "react";
 
 const styles = {
   color: "purple",
-  fontFamily: "Comic Sans MS', cursive",
+  fontFamily: "'Comic Sans MS', cursive",
   fontSize: "2em",
 };
 
