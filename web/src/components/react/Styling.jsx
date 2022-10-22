@@ -1,7 +1,6 @@
 import React from "react";
-import type { CSSProperties } from "react";
 
-const styles: CSSProperties = {
+const styles = {
   color: "purple",
   fontFamily: "Comic Sans MS', cursive",
   fontSize: "2em",

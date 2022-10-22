@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	let name = 'world';
 </script>
 

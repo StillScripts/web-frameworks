@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script>
 	let count = 1;
 
 	// the `$:` means 're-run whenever these values change'

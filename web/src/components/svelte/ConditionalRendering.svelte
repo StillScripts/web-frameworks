@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script>
 	let x = Math.floor(Math.random() * 15);;
 </script>
 

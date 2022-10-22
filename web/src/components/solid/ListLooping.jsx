@@ -1,5 +1,5 @@
 /** @jsxImportSource solid-js */
-import { Component, For } from "solid-js";
+import { For } from "solid-js";
 
 const cats = [
   { id: "J---aiyznGQ", name: "Keyboard Cat" },
@@ -7,7 +7,7 @@ const cats = [
   { id: "OUtn3pvWmpg", name: "Henri The Existential Cat" },
 ];
 
-const ListLooping: Component = () => {
+const ListLooping = () => {
   return (
     <>
       <h1>The Famous Cats of YouTube</h1>

@@ -1,7 +1,7 @@
 /** @jsxImportSource solid-js */
-import { Component, createSignal, Match, Switch } from "solid-js";
+import { createSignal, Match, Switch } from "solid-js";
 
-const ConditionalRendering: Component = () => {
+const ConditionalRendering = () => {
   const [x] = createSignal(Math.floor(Math.random() * 15));
 
   return (

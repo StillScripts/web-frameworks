@@ -9,7 +9,6 @@ export enum Components {
   DependentVariables,
   ConditionalRendering,
   ListLooping,
-  TypingAnimation,
 }
 
 // A list of each component based on the enum options above
@@ -48,9 +47,52 @@ export const getComponentTitle = (component: Components): string => {
       return "Conditional Rendering";
     case Components.ListLooping:
       return "List Looping";
-    case Components.TypingAnimation:
-      return "Typing Animation";
     default:
       return "Hello World";
+  }
+};
+
+/**
+ * Method which converts an option of the Components enum into
+ * a string of the filename for a component.
+ * @param {Components} component
+ * @returns {string}
+ */
+export const getFilename = (component: Components): string => {
+  switch (component) {
+    case Components.HelloWorld:
+      return "HelloWorld";
+    case Components.Styling:
+      return "Styling";
+    case Components.Props:
+      return "Props";
+    case Components.HTML:
+      return "HTML";
+    case Components.BasicVariables:
+      return "BasicVariables";
+    case Components.DependentVariables:
+      return "DependentVariables";
+    case Components.ConditionalRendering:
+      return "ConditionalRendering";
+    case Components.ListLooping:
+      return "ListLooping";
+    default:
+      return "HelloWorld";
+  }
+};
+
+/**
+ * Method which gets the file extension of a specific framework.
+ * @param {Framework} framework
+ * @returns {string}
+ */
+export const getFileExtension = (framework: Framework): string => {
+  switch (framework) {
+    case "Svelte":
+      return ".svelte";
+    case "Vue":
+      return ".vue";
+    default:
+      return ".jsx";
   }
 };

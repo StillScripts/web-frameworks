@@ -1,7 +1,7 @@
 /** @jsxImportSource solid-js */
-import { Component, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 
-const BasicVariables: Component = () => {
+const BasicVariables = () => {
   const [count, setCount] = createSignal(0);
 
   function handleClick() {

@@ -1,7 +1,6 @@
 /** @jsxImportSource solid-js */
-import type { Component } from "solid-js";
 
-const HelloWorld: Component = () => {
+const HelloWorld = () => {
   return <p>Hello world!</p>;
 };
 
