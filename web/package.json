@@ -1,7 +1,11 @@
 {
-  "name": "@example/basics",
+  "name": "web-frameworks",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "author": {
+    "name": "StillScripts",
+    "url": "https://stillscripts.com"
+  },
   "private": true,
   "scripts": {
     "dev": "astro dev",
