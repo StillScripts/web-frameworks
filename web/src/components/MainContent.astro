@@ -7,6 +7,7 @@ import {
 } from "../utils/components"
 import FileReader from "./FileReader.astro"
 import FrameworkSelector from "./FrameworkSelector"
+import ComponentSelector from "./ComponentSelector"
 
 export interface Props {
   framework?: Framework
@@ -29,7 +30,25 @@ const ringF = `ring-${frameworkL}`
     <div
       class="py-6 border-b border-gray-300 text-center lg:text-left lg:flex lg:items-center lg:justify-between"
     >
-      <div class="min-w-0 flex-1 inline-flex items-center">
+      <div class="min-w-0 flex-1 relative inline-flex items-center">
+        <div class="block mr-3 sm:hidden">
+          <a href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 text-blue-700 group-hover:text-blue-900"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819"
+              ></path>
+            </svg>
+          </a>
+        </div>
         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
           {getComponentTitle(component)}
           <span class={textF}>-</span>
@@ -47,6 +66,9 @@ const ringF = `ring-${frameworkL}`
           framework={frameworkL}
           client:load
         />
+      </div>
+      <div class="mt-4 sm:hidden lg:mt-0">
+        <ComponentSelector framework={frameworkL} client:load />
       </div>
     </div>
 

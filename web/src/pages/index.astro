@@ -1,6 +1,16 @@
 ---
 import MinimalLayout from "../layouts/MinimalLayout.astro"
 import FrameworkCard from "../components/FrameworkCard.astro"
+import type { Framework } from "../utils/components"
+
+const frameworks: { name: Framework; url: string }[] = [
+  { name: "React", url: "https://beta.reactjs.org/" },
+  { name: "Vue", url: "https://vuejs.org/" },
+  { name: "Svelte", url: "https://svelte.dev/" },
+  { name: "Solid", url: "https://www.solidjs.com/" },
+  { name: "Preact", url: "https://www.solidjs.com/" },
+  { name: "Lit", url: "https://www.solidjs.com/" },
+]
 ---
 
 <MinimalLayout title="Explore JavaScript Frameworks">
@@ -17,24 +27,13 @@ import FrameworkCard from "../components/FrameworkCard.astro"
       role="list"
       class="mt-6 grid grid-cols-12 gap-4 text-center font-semibold lg:gap-6"
     >
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="React" url="https://beta.reactjs.org/" />
-      </li>
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="Vue" url="https://vuejs.org/" />
-      </li>
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="Svelte" url="https://svelte.dev/" />
-      </li>
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="Solid" url="https://www.solidjs.com/" />
-      </li>
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="Preact" url="https://www.solidjs.com/" />
-      </li>
-      <li class="col-span-12 md:col-span-6 xl:col-span-4">
-        <FrameworkCard framework="Lit" url="https://www.solidjs.com/" />
-      </li>
+      {
+        frameworks.map((framework) => (
+          <li class="col-span-12 md:col-span-6 xl:col-span-4">
+            <FrameworkCard framework={framework.name} url={framework.url} />
+          </li>
+        ))
+      }
     </ul>
   </main>
 </MinimalLayout>

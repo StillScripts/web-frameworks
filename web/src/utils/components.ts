@@ -1,5 +1,14 @@
 export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit"
 
+export const frameworks: Framework[] = [
+  "React",
+  "Vue",
+  "Svelte",
+  "Solid",
+  "Preact",
+  "Lit",
+]
+
 export enum Components {
   HelloWorld,
   Styling,

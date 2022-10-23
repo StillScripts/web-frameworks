@@ -2,9 +2,14 @@
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { classNames } from "../utils/helpers"
-import { getLogo, frameworks } from "../utils/components"
+import {
+  getLogo,
+  frameworks,
+  componentsList,
+  getComponentTitle,
+} from "../utils/components"
 
-export default function FrameworkSelector({ component, framework }) {
+export default function ComponentSelector({ framework }) {
   return (
     <Popover className="relative">
       {({ open }) => (
@@ -15,7 +20,7 @@ export default function FrameworkSelector({ component, framework }) {
               `group inline-flex items-center rounded-md border border-gray-300 bg-white text-base font-medium text-gray-700 shadow-sm ring-${framework} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`
             )}
           >
-            <span>Select Framework</span>
+            <span>Select Component</span>
             <svg
               className={`text-${framework} ml-2 h-5 w-5`}
               xmlns="http://www.w3.org/2000/svg"
@@ -40,23 +45,16 @@ export default function FrameworkSelector({ component, framework }) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-36 -translate-x-1/2 transform px-2 sm:px-0">
+            <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-48 -translate-x-1/2 transform px-2 sm:px-0">
               <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="relative grid gap-4 bg-white px-3 py-4 sm:gap-6 sm:p-4">
-                  {frameworks.map((framework, id) => (
+                  {componentsList.map((c, id) => (
                     <a
-                      key={framework + id}
-                      href={`/${framework.toLowerCase()}/${component}`}
-                      className="-m-3 flex items-start rounded-lg p-3 transition duration-150 ease-in-out hover:bg-sky-50"
+                      key={"Component-option-" + id}
+                      href={`/${framework}/${c}`}
+                      className="-m-3 rounded-lg p-3 text-left transition duration-150 ease-in-out hover:bg-sky-50"
                     >
-                      <span className="flex items-center">
-                        <img
-                          src={getLogo(framework)}
-                          alt={framework + " logo"}
-                          className="h-6 w-6 flex-shrink-0 rounded-full"
-                        />
-                        <span className="ml-3 block">{framework}</span>
-                      </span>
+                      <span className="block">{getComponentTitle(c)}</span>
                     </a>
                   ))}
                 </div>

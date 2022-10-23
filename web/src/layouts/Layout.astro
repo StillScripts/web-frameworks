@@ -1,5 +1,5 @@
 ---
-import Sidebar from "../components/Sidebar.astro"
+import Sidebar from "../components/SidebarReact"
 import { Components, Framework } from "../utils/components"
 import MinimalLayout from "./MinimalLayout.astro"
 import MainContent from "../components/MainContent.astro"
@@ -19,7 +19,7 @@ const {
 
 <MinimalLayout title={title}>
   <Sidebar component={component} framework={framework} />
-  <MainContent component={component} framework={framework} >
+  <MainContent component={component} framework={framework}>
     <slot />
   </MainContent>
 </MinimalLayout>
