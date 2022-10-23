@@ -11,37 +11,49 @@ export interface Props {
 
 const { component = Components.HelloWorld, framework = "React" } = Astro.props;
 
-const frameworkL=framework.toLowerCase()
+const frameworkL = framework.toLowerCase();
 
-const textF = `text-${frameworkL}`
-const ringF = `ring-${frameworkL}`
+const textF = `text-${frameworkL}`;
+const ringF = `ring-${frameworkL}`;
 ---
 
-<main class="pl-0 sm:pl-56 w-full min-h-screen bg-pin flex flex-col justify-between">
-  <div
-    class="w-full mx-auto  leading-7 max-w-7xl px-2 sm:px-4 md:px-8"
-  >
+<main
+  class="pl-0 sm:pl-56 w-full min-h-screen bg-pin flex flex-col justify-between"
+>
+  <div class="w-full mx-auto leading-7 max-w-7xl px-2 sm:px-4 md:px-8">
     <!-- Page Header -->
     <div
       class="py-6 border-b border-gray-300 text-center md:text-left md:flex md:items-center md:justify-between"
     >
       <div class="min-w-0 flex-1">
         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
-          {getComponentTitle(component)} <span class={textF}>-</span> {framework}
+          {getComponentTitle(component)}
+          <span class={textF}>-</span>
+          {framework}
         </h1>
       </div>
-      <div class="mt-4 md:mt-0"><FrameworkSelector component={component} framework={frameworkL} client:load /></div>
+      <div class="mt-4 md:mt-0">
+        <FrameworkSelector
+          component={component}
+          framework={frameworkL}
+          client:load
+        />
+      </div>
     </div>
 
     <!-- Component and Code -->
     <div class="pt-10 pb-4">
       <div class="grid grid-cols-12 space-x-3">
-        <div class="col-span-12 lg:col-span-3 xl:col-span-4">
-          <h2 class="text-lg font-medium text-gray-800 sm:text-xl">Component</h2>
+        <div class="ml-3 col-span-12 lg:ml-0 lg:col-span-3 xl:col-span-4">
+          <h2 class="text-lg font-medium text-gray-800 sm:text-xl">
+            Component
+          </h2>
           <DisplayComponent component={component} framework={framework} />
         </div>
         <div class="mt-5 col-span-12 lg:mt-0 lg:col-span-9 xl:col-span-8">
-          <h2 class="text-lg font-medium text-gray-800 sm:text-xl">Source Code</h2>
+          <h2 class="text-lg font-medium text-gray-800 sm:text-xl">
+            Source Code
+          </h2>
           <FileReader component={component} framework={framework} />
         </div>
       </div>
@@ -49,13 +61,15 @@ const ringF = `ring-${frameworkL}`
   </div>
 
   <!-- Pagination Links -->
-  <div class="border-t border-gray-300 w-full mx-auto max-w-7xl py-6 px-2 sm:px-4 md:px-8">
+  <div
+    class="border-t border-gray-300 w-full mx-auto max-w-7xl py-6 px-2 sm:px-4 md:px-8"
+  >
     <div class="flex items-center justify-between">
       {
         component !== Components.HelloWorld ? (
           <a
             href={`/${frameworkL}/${component - 1}`}
-            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
           >
             <svg
               class={`mr-1 h-5 w-5 ${textF}`}
@@ -81,7 +95,7 @@ const ringF = `ring-${frameworkL}`
         component !== Components.ListLooping ? (
           <a
             href={`/${frameworkL}/${component + 1}`}
-            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
           >
             {getComponentTitle(component + 1)}{" "}
             <svg

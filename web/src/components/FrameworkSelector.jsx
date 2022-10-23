@@ -38,7 +38,7 @@ export default function FrameworkSelector({ component, framework }) {
           <Popover.Button
             className={classNames(
               open ? "text-gray-900" : "text-gray-500",
-              `group inline-flex items-center rounded-md bg-white text-base font-medium text-gray-700 shadow-sm ring-${framework} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`
+              `group inline-flex items-center rounded-md border border-gray-300 bg-white text-base font-medium text-gray-700 shadow-sm ring-${framework} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`
             )}
           >
             <span>Select Framework</span>
