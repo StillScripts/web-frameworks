@@ -1,15 +1,10 @@
 ---
 import MinimalLayout from "../layouts/MinimalLayout.astro";
-import Svelte from "../components/Svelte.svelte";
-import Vue from "../components/Vue.vue";
-import Preact from "../components/Preact";
-import React from "../components/React";
-import Solid from "../components/Solid";
-import { Lit } from "../components/Lit";
+import FrameworkCard from "../components/FrameworkCard.astro";
 ---
 
-<MinimalLayout title="7 in 1 | JavaScript Frameworks">
-  <main class="m-auto p-6 max-w-screen-sm bg-gray-200">
+<MinimalLayout title="Explore JavaScript Frameworks">
+  <main class="min-h-screen w-full p-6 bg-gray-200">
     <h1 class="mt-4 font-extrabold text-center text-5xl">
       Welcome to <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-500"
@@ -18,14 +13,17 @@ import { Lit } from "../components/Lit";
     </h1>
     <ul
       role="list"
-      class="mt-6 p-4 grid grid-cols-2 gap-2 text-center font-semibold"
+      class="mt-6 p-4 grid grid-cols-12 gap-4 text-center font-semibold"
     >
-      <li class="text-react"><React client:load /></li>
-      <li class="text-vue"><Vue client:load /></li>
-      <li class="text-solid"><Solid client:load /></li>
-      <li class="text-svelte"><Svelte client:load /></li>
-      <li class="text-preact"><Preact client:load /></li>
-      <li class="text-lit"><Lit client:load /></li>
+      <li class="col-span-12 md:col-span-6 xl:col-span-4">
+        <FrameworkCard framework="React" url="https://reactjs.org/" />
+      </li>
+      <li class="col-span-12 md:col-span-6 xl:col-span-4">
+        <FrameworkCard framework="Svelte" url="https://svelte.dev/" />
+      </li>
+      <li class="col-span-12 md:col-span-6 xl:col-span-4">
+        <FrameworkCard framework="Solid" url="https://www.solidjs.com/" />
+      </li>
     </ul>
   </main>
 </MinimalLayout>

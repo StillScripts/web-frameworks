@@ -26,6 +26,12 @@ module.exports = {
     "ring-svelte",
     "ring-preact",
     "ring-lit",
+    "bg-react",
+    "bg-vue",
+    "bg-solid",
+    "bg-svelte",
+    "bg-preact",
+    "bg-lit",
   ],
   plugins: [],
 };
