@@ -1,0 +1,19 @@
+---
+import { componentsList } from "../../utils/components"
+import Layout from "../../layouts/Layout.astro"
+import { LitComponents } from "../../components/lit/LitComponents"
+
+export function getStaticPaths() {
+  return componentsList.map((component) => ({ params: { id: component } }))
+}
+
+const { id } = Astro.params
+---
+
+<Layout
+  title="Lit components"
+  framework="Lit"
+  component={parseInt(id as string)}
+>
+  <LitComponents client:idle />
+</Layout>
