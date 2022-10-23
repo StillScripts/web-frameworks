@@ -12,9 +12,10 @@ import {
 interface Props {
   component: Components
   framework: Framework
+  fixedHeight?: boolean
 }
 
-const { component, framework } = Astro.props
+const { component, framework, fixedHeight = false } = Astro.props
 
 const fileName = getFilename(component) + getFileExtension(framework)
 let fileCode = 'console.log("Something went wrong!")'
@@ -42,6 +43,6 @@ try {
 }
 ---
 
-<div class="pt-2 max-h-48 overflow-y-hidden">
+<div class={`pt-2 ${fixedHeight ? "max-h-48 overflow-y-hidden rounded-b" : ""}`}>
   <Prism lang="jsx" code={fileCode} />
 </div>

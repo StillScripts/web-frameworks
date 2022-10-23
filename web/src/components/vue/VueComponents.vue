@@ -32,7 +32,7 @@ export default {
   <div>
     <HelloWorld v-if="currentComponent === Components.HelloWorld" />
     <Styling v-if="currentComponent === Components.Styling" />
-    <Props v-if="currentComponent === Components.Props" />
+    <Props v-if="currentComponent === Components.Props" :answer="42" />
     <div v-if="currentComponent === Components.HTML">To be completed</div>
     <BasicVariables v-if="currentComponent === Components.BasicVariables" />
     <DependentVariables
