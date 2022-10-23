@@ -1,0 +1,19 @@
+---
+import { componentsList } from "../../utils/components"
+import Layout from "../../layouts/Layout.astro"
+import VueComponents from "../../components/vue/VueComponents.vue"
+
+export function getStaticPaths() {
+  return componentsList.map((component) => ({ params: { id: component } }))
+}
+
+const { id } = Astro.params
+---
+
+<Layout
+  title="Vue components"
+  framework="Vue"
+  component={parseInt(id as string)}
+>
+  <VueComponents currentComponent={parseInt(id as string)} client:idle />
+</Layout>

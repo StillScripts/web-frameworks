@@ -2,6 +2,7 @@
 import ReactComponents from "./react/ReactComponents"
 import SvelteComponents from "./svelte/SvelteComponents.svelte"
 import SolidComponents from "./solid/SolidComponents"
+import VueComponents from "./vue/VueComponents.vue"
 import type { Components, Framework } from "../utils/components"
 
 interface Props {
@@ -26,6 +27,11 @@ const { component, framework } = Astro.props
   {
     framework === "Svelte" && (
       <SvelteComponents currentComponent={component} client:visible />
+    )
+  }
+  {
+    framework === "Vue" && (
+      <VueComponents currentComponent={component} client:visible />
     )
   }
 </div>
