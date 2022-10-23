@@ -1,23 +1,23 @@
 ---
-import Sidebar from "../components/Sidebar.astro";
-import { Components, Framework } from "../utils/components";
-import MinimalLayout from "./MinimalLayout.astro";
-import MainContent from "../components/MainContent.astro";
+import Sidebar from "../components/Sidebar.astro"
+import { Components, Framework } from "../utils/components"
+import MinimalLayout from "./MinimalLayout.astro"
+import MainContent from "../components/MainContent.astro"
 
 export interface Props {
-  title: string;
-  framework?: Framework;
-  component?: Components;
+  title: string
+  framework?: Framework
+  component?: Components
 }
 
 const {
   title,
   component = Components.HelloWorld,
   framework = "React",
-} = Astro.props;
+} = Astro.props
 ---
 
 <MinimalLayout title={title}>
-    <Sidebar component={component} framework={framework} />
-    <MainContent component={component} framework={framework} />
+  <Sidebar component={component} framework={framework} />
+  <MainContent component={component} framework={framework} />
 </MinimalLayout>

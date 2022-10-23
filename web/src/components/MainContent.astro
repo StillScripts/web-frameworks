@@ -1,20 +1,20 @@
 ---
-import { Components, Framework, getComponentTitle } from "../utils/components";
-import DisplayComponent from "./DisplayComponent.astro";
-import FileReader from "./FileReader.astro";
-import FrameworkSelector from "./FrameworkSelector";
+import { Components, Framework, getComponentTitle } from "../utils/components"
+import DisplayComponent from "./DisplayComponent.astro"
+import FileReader from "./FileReader.astro"
+import FrameworkSelector from "./FrameworkSelector"
 
 export interface Props {
-  framework?: Framework;
-  component?: Components;
+  framework?: Framework
+  component?: Components
 }
 
-const { component = Components.HelloWorld, framework = "React" } = Astro.props;
+const { component = Components.HelloWorld, framework = "React" } = Astro.props
 
-const frameworkL = framework.toLowerCase();
+const frameworkL = framework.toLowerCase()
 
-const textF = `text-${frameworkL}`;
-const ringF = `ring-${frameworkL}`;
+const textF = `text-${frameworkL}`
+const ringF = `ring-${frameworkL}`
 ---
 
 <main
@@ -69,7 +69,7 @@ const ringF = `ring-${frameworkL}`;
         component !== Components.HelloWorld ? (
           <a
             href={`/${frameworkL}/${component - 1}`}
-            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm sm:px-4 sm:py-2 ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
           >
             <svg
               class={`mr-1 h-5 w-5 ${textF}`}
@@ -95,7 +95,7 @@ const ringF = `ring-${frameworkL}`;
         component !== Components.ListLooping ? (
           <a
             href={`/${frameworkL}/${component + 1}`}
-            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium text-gray-700 shadow-sm ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+            class={`inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 shadow-sm sm:px-4 sm:py-2 ${ringF} hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2`}
           >
             {getComponentTitle(component + 1)}{" "}
             <svg

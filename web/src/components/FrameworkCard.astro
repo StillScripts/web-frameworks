@@ -1,16 +1,15 @@
 ---
-import { Components, Framework, getLogo } from "../utils/components";
-import FileReader from "./FileReader.astro";
+import { Components, Framework, getLogo } from "../utils/components"
+import FileReader from "./FileReader.astro"
 
 export interface Props {
-  framework: Framework;
-  url: string;
+  framework: Framework
+  url: string
 }
 
-const { framework, url } = Astro.props;
+const { framework, url } = Astro.props
 
-const frameworkL = framework.toLowerCase();
-
+const frameworkL = framework.toLowerCase()
 ---
 
 <div
@@ -35,17 +34,20 @@ const frameworkL = framework.toLowerCase();
         {framework}
       </h3>
     </div>
-		<FileReader framework={framework} component={Components.BasicVariables} />
+    <FileReader framework={framework} component={Components.BasicVariables} />
   </div>
   <div class="mt-2 flex flex-wrap items-center justify-between">
     <div class="mb-2">
-      <a 
-				class={`inline-flex items-center rounded-xl border border-transparent bg-opacity-90 bg-${frameworkL} px-4 py-2 text-sm font-medium text-white shadow-sm ring-${frameworkL} hover:bg-opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2`}
-				href={`${frameworkL}/0`}
-			>View Components</a>
+      <a
+        class={`inline-flex items-center rounded-xl border border-transparent bg-opacity-90 bg-${frameworkL} px-4 py-2 text-sm font-medium text-white shadow-sm ring-${frameworkL} hover:bg-opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2`}
+        href={`${frameworkL}/0`}>View Components</a
+      >
     </div>
     <div class="mb-2">
-      <a class={`px-4 py-2 text-${frameworkL} rounded-xl ring-${frameworkL} hover:text-gray-700 focus:ring-2 focus:ring-offset-2`} href={url}>Learn more &gt;</a>
+      <a
+        class={`px-4 py-2 text-${frameworkL} rounded-xl ring-${frameworkL} hover:text-gray-700 focus:ring-2 focus:ring-offset-2`}
+        href={url}>Learn more &gt;</a
+      >
     </div>
   </div>
 </div>

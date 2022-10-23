@@ -1,13 +1,13 @@
-import React from "react";
-import BasicVariables from "./BasicVariables";
-import ConditionalRendering from "./ConditionalRendering";
-import DependentVariables from "./DependentVariables";
-import HelloWorld from "./HelloWorld";
-import HTML from "./HTML";
-import ListLooping from "./ListLooping";
-import Props from "./Props";
-import Styling from "./Styling";
-import { Components } from "../../utils/components";
+import React from "react"
+import BasicVariables from "./BasicVariables"
+import ConditionalRendering from "./ConditionalRendering"
+import DependentVariables from "./DependentVariables"
+import HelloWorld from "./HelloWorld"
+import HTML from "./HTML"
+import ListLooping from "./ListLooping"
+import Props from "./Props"
+import Styling from "./Styling"
+import { Components } from "../../utils/components"
 
 const ReactComponents = ({ currentComponent }) => {
   return (
@@ -30,7 +30,7 @@ const ReactComponents = ({ currentComponent }) => {
         <ListLooping />
       )}
     </>
-  );
-};
+  )
+}
 
-export default ReactComponents;
+export default ReactComponents

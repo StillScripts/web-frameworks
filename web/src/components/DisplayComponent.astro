@@ -1,15 +1,15 @@
 ---
-import ReactComponents from "./react/ReactComponents";
-import SvelteComponents from "./svelte/SvelteComponents.svelte";
-import SolidComponents from "./solid/SolidComponents";
-import type { Components, Framework } from "../utils/components";
+import ReactComponents from "./react/ReactComponents"
+import SvelteComponents from "./svelte/SvelteComponents.svelte"
+import SolidComponents from "./solid/SolidComponents"
+import type { Components, Framework } from "../utils/components"
 
 interface Props {
-  component: Components;
-  framework: Framework;
+  component: Components
+  framework: Framework
 }
 
-const { component, framework } = Astro.props;
+const { component, framework } = Astro.props
 ---
 
 <div class="mt-4 p-5 inline-block border border-gray-200 shadow-lg rounded-lg">

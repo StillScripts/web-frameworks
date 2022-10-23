@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 const cats = [
   { id: "J---aiyznGQ", name: "Keyboard Cat" },
   { id: "z_AbfPXTKms", name: "Maru" },
   { id: "OUtn3pvWmpg", name: "Henri The Existential Cat" },
-];
+]
 
 const ListLooping = () => {
   return (
@@ -22,7 +22,7 @@ const ListLooping = () => {
         ))}
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default ListLooping;
+export default ListLooping

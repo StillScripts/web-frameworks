@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 
 const ConditionalRendering = () => {
-  const [x] = useState(Math.floor(Math.random() * 15));
+  const [x] = useState(Math.floor(Math.random() * 15))
 
   return (
     <>
@@ -13,7 +13,7 @@ const ConditionalRendering = () => {
         <p>{x} is between 5 and 10</p>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ConditionalRendering;
+export default ConditionalRendering

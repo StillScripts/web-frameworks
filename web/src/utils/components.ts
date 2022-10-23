@@ -1,4 +1,4 @@
-export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit";
+export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit"
 
 export enum Components {
   HelloWorld,
@@ -21,7 +21,7 @@ export const componentsList: Components[] = [
   Components.DependentVariables,
   Components.ConditionalRendering,
   Components.ListLooping,
-];
+]
 
 /**
  * Method which converts an option of the Components enum into
@@ -32,25 +32,25 @@ export const componentsList: Components[] = [
 export const getComponentTitle = (component: Components): string => {
   switch (component) {
     case Components.HelloWorld:
-      return "Hello World";
+      return "Hello World"
     case Components.Styling:
-      return "Styling";
+      return "Styling"
     case Components.Props:
-      return "Props";
+      return "Props"
     case Components.HTML:
-      return "HTML Tags";
+      return "HTML Tags"
     case Components.BasicVariables:
-      return "Basic Variables";
+      return "Basic Variables"
     case Components.DependentVariables:
-      return "Dependent Variables";
+      return "Dependent Variables"
     case Components.ConditionalRendering:
-      return "Conditional Rendering";
+      return "Conditional Rendering"
     case Components.ListLooping:
-      return "List Looping";
+      return "List Looping"
     default:
-      return "Hello World";
+      return "Hello World"
   }
-};
+}
 
 /**
  * Method which converts an option of the Components enum into
@@ -61,25 +61,25 @@ export const getComponentTitle = (component: Components): string => {
 export const getFilename = (component: Components): string => {
   switch (component) {
     case Components.HelloWorld:
-      return "HelloWorld";
+      return "HelloWorld"
     case Components.Styling:
-      return "Styling";
+      return "Styling"
     case Components.Props:
-      return "Props";
+      return "Props"
     case Components.HTML:
-      return "HTML";
+      return "HTML"
     case Components.BasicVariables:
-      return "BasicVariables";
+      return "BasicVariables"
     case Components.DependentVariables:
-      return "DependentVariables";
+      return "DependentVariables"
     case Components.ConditionalRendering:
-      return "ConditionalRendering";
+      return "ConditionalRendering"
     case Components.ListLooping:
-      return "ListLooping";
+      return "ListLooping"
     default:
-      return "HelloWorld";
+      return "HelloWorld"
   }
-};
+}
 
 /**
  * Method which gets the file extension of a specific framework.
@@ -89,13 +89,13 @@ export const getFilename = (component: Components): string => {
 export const getFileExtension = (framework: Framework): string => {
   switch (framework) {
     case "Svelte":
-      return ".svelte";
+      return ".svelte"
     case "Vue":
-      return ".vue";
+      return ".vue"
     default:
-      return ".jsx";
+      return ".jsx"
   }
-};
+}
 
 /**
  * Method which gets the path to the logo of a specific file.
@@ -104,8 +104,8 @@ export const getFileExtension = (framework: Framework): string => {
  */
 export const getLogo = (framework: Framework): string => {
   if (framework === "Preact") {
-    return "/logos/preact-logo.png";
+    return "/logos/preact-logo.png"
   } else {
-    return `/logos/${framework.toLowerCase()}-icon.svg`;
+    return `/logos/${framework.toLowerCase()}-icon.svg`
   }
-};
+}

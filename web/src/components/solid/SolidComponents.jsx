@@ -1,12 +1,12 @@
 /** @jsxImportSource solid-js */
-import { Match, Switch } from "solid-js";
-import BasicVariables from "./BasicVariables";
-import ConditionalRendering from "./ConditionalRendering";
-import DependentVariables from "./DependentVariables";
-import HelloWorld from "./HelloWorld";
-import ListLooping from "./ListLooping";
-import Styling from "./Styling";
-import { Components } from "../../utils/components";
+import { Match, Switch } from "solid-js"
+import BasicVariables from "./BasicVariables"
+import ConditionalRendering from "./ConditionalRendering"
+import DependentVariables from "./DependentVariables"
+import HelloWorld from "./HelloWorld"
+import ListLooping from "./ListLooping"
+import Styling from "./Styling"
+import { Components } from "../../utils/components"
 
 const SolidComponents = ({ currentComponent }) => {
   return (
@@ -36,7 +36,7 @@ const SolidComponents = ({ currentComponent }) => {
         <ListLooping />
       </Match>
     </Switch>
-  );
-};
+  )
+}
 
-export default SolidComponents;
+export default SolidComponents

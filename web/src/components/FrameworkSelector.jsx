@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import { classNames } from "../utils/helpers";
+import { Fragment } from "react"
+import { Popover, Transition } from "@headlessui/react"
+import { classNames } from "../utils/helpers"
 
 const frameworks = [
   {
@@ -28,7 +28,7 @@ const frameworks = [
     name: "Lit",
     logo: "/logos/lit-icon.svg",
   },
-];
+]
 
 export default function FrameworkSelector({ component, framework }) {
   return (
@@ -92,5 +92,5 @@ export default function FrameworkSelector({ component, framework }) {
         </>
       )}
     </Popover>
-  );
+  )
 }

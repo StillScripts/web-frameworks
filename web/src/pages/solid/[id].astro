@@ -1,13 +1,13 @@
 ---
-import { componentsList } from "../../utils/components";
-import Layout from "../../layouts/Layout.astro";
-import SolidComponents from "../../components/solid/SolidComponents";
+import { componentsList } from "../../utils/components"
+import Layout from "../../layouts/Layout.astro"
+import SolidComponents from "../../components/solid/SolidComponents"
 
 export function getStaticPaths() {
-  return componentsList.map((component) => ({ params: { id: component } }));
+  return componentsList.map((component) => ({ params: { id: component } }))
 }
 
-const { id } = Astro.params;
+const { id } = Astro.params
 ---
 
 <Layout

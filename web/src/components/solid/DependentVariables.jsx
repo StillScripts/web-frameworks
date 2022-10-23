@@ -1,18 +1,18 @@
 /** @jsxImportSource solid-js */
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createSignal } from "solid-js"
 
 const DependentVariables = () => {
-  const [count, setCount] = createSignal(1);
-  const [doubled, setDoubled] = createSignal(count() * 2);
-  const [quadrupled, setQuadrupled] = createSignal(doubled() * 2);
+  const [count, setCount] = createSignal(1)
+  const [doubled, setDoubled] = createSignal(count() * 2)
+  const [quadrupled, setQuadrupled] = createSignal(doubled() * 2)
 
   createEffect(() => {
-    setDoubled(count() * 2);
-    setQuadrupled(doubled() * 2);
-  });
+    setDoubled(count() * 2)
+    setQuadrupled(doubled() * 2)
+  })
 
   function handleClick() {
-    setCount(count() + 1);
+    setCount(count() + 1)
   }
 
   return (
@@ -25,7 +25,7 @@ const DependentVariables = () => {
         {doubled} * 2 = {quadrupled}
       </p>
     </>
-  );
-};
+  )
+}
 
-export default DependentVariables;
+export default DependentVariables

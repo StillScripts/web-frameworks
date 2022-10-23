@@ -1,3 +1,3 @@
-const HTML = () => <p>To be determined</p>;
+const HTML = () => <p>To be determined</p>
 
-export default HTML;
+export default HTML

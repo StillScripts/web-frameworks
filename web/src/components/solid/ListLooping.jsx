@@ -1,11 +1,11 @@
 /** @jsxImportSource solid-js */
-import { For } from "solid-js";
+import { For } from "solid-js"
 
 const cats = [
   { id: "J---aiyznGQ", name: "Keyboard Cat" },
   { id: "z_AbfPXTKms", name: "Maru" },
   { id: "OUtn3pvWmpg", name: "Henri The Existential Cat" },
-];
+]
 
 const ListLooping = () => {
   return (
@@ -26,7 +26,7 @@ const ListLooping = () => {
         </For>
       </ul>
     </>
-  );
-};
+  )
+}
 
-export default ListLooping;
+export default ListLooping

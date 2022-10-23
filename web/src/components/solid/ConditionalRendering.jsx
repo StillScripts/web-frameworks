@@ -1,7 +1,7 @@
-import { createSignal, Match, Switch } from "solid-js";
+import { createSignal, Match, Switch } from "solid-js"
 
 const ConditionalRendering = () => {
-  const [x] = createSignal(Math.floor(Math.random() * 15));
+  const [x] = createSignal(Math.floor(Math.random() * 15))
 
   return (
     <Switch fallback={<p>{x()} is between 5 and 10</p>}>
@@ -12,7 +12,7 @@ const ConditionalRendering = () => {
         <p>{x()} is less than 5</p>
       </Match>
     </Switch>
-  );
-};
+  )
+}
 
-export default ConditionalRendering;
+export default ConditionalRendering

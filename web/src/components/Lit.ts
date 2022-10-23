@@ -1,11 +1,11 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html } from "lit"
 
-const tagName = 'my-element';
+const tagName = "my-element"
 
 export class Lit extends LitElement {
   override render() {
-    return html`<div>Hello from Lit</div> `;
+    return html`<div>Hello from Lit</div> `
   }
 }
 
-customElements.define(tagName, Lit);
+customElements.define(tagName, Lit)

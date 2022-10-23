@@ -1,44 +1,44 @@
 ---
 // Example: import the "fs/promises" builtin from Node.js
-import fs from "node:fs/promises";
-import { Prism } from "@astrojs/prism";
+import fs from "node:fs/promises"
+import { Prism } from "@astrojs/prism"
 import {
   getFilename,
   getFileExtension,
   Components,
   Framework,
-} from "../utils/components";
+} from "../utils/components"
 
 interface Props {
-  component: Components;
-  framework: Framework;
+  component: Components
+  framework: Framework
 }
 
-const { component, framework } = Astro.props;
+const { component, framework } = Astro.props
 
-const fileName = getFilename(component) + getFileExtension(framework);
-let fileCode = 'console.log("Something went wrong!")';
-let JSONFile = JSON.stringify("Hello");
-const mode = import.meta.env.MODE;
+const fileName = getFilename(component) + getFileExtension(framework)
+let fileCode = 'console.log("Something went wrong!")'
+let JSONFile = JSON.stringify("Hello")
+const mode = import.meta.env.MODE
 
 try {
   if (mode === "development") {
     const url = new URL(
       `./${framework.toLowerCase()}/${fileName}`,
       import.meta.url
-    );
-    fileCode = await fs.readFile(url, "utf-8");
+    )
+    fileCode = await fs.readFile(url, "utf-8")
   } else if (mode === "production") {
     const distUrl = new URL(
       `./${framework.toLowerCase()}.json`,
       import.meta.url
-    );
-    JSONFile = await fs.readFile(distUrl, "utf-8");
-    const obj = JSON.parse(JSONFile);
-    fileCode = obj[framework.toLowerCase()][getFilename(component)];
+    )
+    JSONFile = await fs.readFile(distUrl, "utf-8")
+    const obj = JSON.parse(JSONFile)
+    fileCode = obj[framework.toLowerCase()][getFilename(component)]
   }
 } catch (error) {
-  console.log(error);
+  console.log(error)
 }
 ---
 
