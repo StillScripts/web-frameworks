@@ -1,0 +1,19 @@
+---
+import { componentsList } from "../../utils/components"
+import Layout from "../../layouts/Layout.astro"
+import PreactComponents from "../../components/preact/PreactComponents"
+
+export function getStaticPaths() {
+  return componentsList.map((component) => ({ params: { id: component } }))
+}
+
+const { id } = Astro.params
+---
+
+<Layout
+  title="Preact components"
+  framework="Preact"
+  component={parseInt(id as string)}
+>
+  <PreactComponents currentComponent={parseInt(id as string)} client:idle />
+</Layout>

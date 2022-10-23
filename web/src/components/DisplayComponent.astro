@@ -1,7 +1,8 @@
 ---
+import PreactComponents from "./preact/PreactComponents"
 import ReactComponents from "./react/ReactComponents"
-import SvelteComponents from "./svelte/SvelteComponents.svelte"
 import SolidComponents from "./solid/SolidComponents"
+import SvelteComponents from "./svelte/SvelteComponents.svelte"
 import VueComponents from "./vue/VueComponents.vue"
 import type { Components, Framework } from "../utils/components"
 
@@ -32,6 +33,11 @@ const { component, framework } = Astro.props
   {
     framework === "Vue" && (
       <VueComponents currentComponent={component} client:visible />
+    )
+  }
+  {
+    framework === "Preact" && (
+      <PreactComponents currentComponent={component} client:visible />
     )
   }
 </div>
