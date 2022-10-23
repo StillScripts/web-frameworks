@@ -20,14 +20,14 @@ const frameworks = [
     name: "Solid",
     logo: "/logos/solid-icon.svg",
   },
-  {
-    name: "Preact",
-    logo: "/logos/preact-logo.png",
-  },
-  {
-    name: "Lit",
-    logo: "/logos/lit-icon.svg",
-  },
+  // {
+  //   name: "Preact",
+  //   logo: "/logos/preact-logo.png",
+  // },
+  // {
+  //   name: "Lit",
+  //   logo: "/logos/lit-icon.svg",
+  // },
 ]
 
 export default function FrameworkSelector({ component, framework }) {

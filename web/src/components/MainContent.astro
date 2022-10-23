@@ -1,5 +1,10 @@
 ---
-import { Components, Framework, getComponentTitle } from "../utils/components"
+import {
+  Components,
+  Framework,
+  getComponentTitle,
+  getLogo,
+} from "../utils/components"
 import DisplayComponent from "./DisplayComponent.astro"
 import FileReader from "./FileReader.astro"
 import FrameworkSelector from "./FrameworkSelector"
@@ -23,16 +28,21 @@ const ringF = `ring-${frameworkL}`
   <div class="w-full mx-auto leading-7 max-w-7xl px-2 sm:px-4 md:px-8">
     <!-- Page Header -->
     <div
-      class="py-6 border-b border-gray-300 text-center md:text-left md:flex md:items-center md:justify-between"
+      class="py-6 border-b border-gray-300 text-center lg:text-left lg:flex lg:items-center lg:justify-between"
     >
-      <div class="min-w-0 flex-1">
+      <div class="min-w-0 flex-1 inline-flex items-center">
         <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
           {getComponentTitle(component)}
           <span class={textF}>-</span>
           {framework}
         </h1>
+        <img
+        class="hidden ml-2 h-8 w-auto sm:block"
+        src={getLogo(framework)}
+        alt={`${framework} logo`}
+      />
       </div>
-      <div class="mt-4 md:mt-0">
+      <div class="mt-4 lg:mt-0">
         <FrameworkSelector
           component={component}
           framework={frameworkL}
