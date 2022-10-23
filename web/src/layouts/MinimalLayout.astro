@@ -21,13 +21,14 @@ const {
       content="Explore a variety of simple components in each of the major all JavaScript frameworks, contained in one magical Astro.js website."
     />
   </head>
-  <body class="min-h-screen w-full relative bg-gray-100"
-    ><slot /><style is:global>
-      /**
- * atom-dark theme for `prism.js`
- * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
- * @author Joe Gibson (@gibsjose)
- */
+  <body class="min-h-screen w-full relative bg-gray-100">
+    <slot />
+    <style is:global>
+    /**
+      * atom-dark theme for `prism.js`
+      * Based on Atom's `atom-dark` theme: https://github.com/atom/atom-dark-syntax
+      * @author Joe Gibson (@gibsjose)
+    */
 
       code[class*="language-"],
       pre[class*="language-"] {

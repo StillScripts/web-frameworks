@@ -19,5 +19,7 @@ const {
 
 <MinimalLayout title={title}>
   <Sidebar component={component} framework={framework} />
-  <MainContent component={component} framework={framework} />
+  <MainContent component={component} framework={framework} >
+    <slot />
+  </MainContent>
 </MinimalLayout>

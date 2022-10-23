@@ -2,32 +2,33 @@
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import { classNames } from "../utils/helpers"
+import { getLogo, Framework } from "../utils/components"
 
 const frameworks = [
   {
     name: "React",
-    logo: "/logos/react-icon.svg",
+    logo: getLogo("React"),
   },
   {
     name: "Vue",
-    logo: "/logos/vue-icon.svg",
+    logo: getLogo("Vue"),
   },
   {
     name: "Svelte",
-    logo: "/logos/svelte-icon.svg",
+    logo: getLogo("Svelte"),
   },
   {
     name: "Solid",
-    logo: "/logos/solid-icon.svg",
+    logo: getLogo("Solid"),
   },
   {
     name: "Preact",
-    logo: "/logos/preact-logo.png",
+    logo: getLogo("Preact"),
   },
-  // {
-  //   name: "Lit",
-  //   logo: "/logos/lit-icon.svg",
-  // },
+  {
+    name: "Lit",
+    logo: getLogo("Lit"),
+  },
 ]
 
 export default function FrameworkSelector({ component, framework }) {

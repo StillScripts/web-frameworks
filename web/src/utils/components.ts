@@ -88,6 +88,8 @@ export const getFilename = (component: Components): string => {
  */
 export const getFileExtension = (framework: Framework): string => {
   switch (framework) {
+    case "Lit":
+      return ".ts"
     case "Svelte":
       return ".svelte"
     case "Vue":
