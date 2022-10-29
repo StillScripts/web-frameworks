@@ -6,7 +6,7 @@ export const frameworks: Framework[] = [
   "Svelte",
   "Solid",
   "Preact",
-  "Lit",
+  //"Lit",
 ]
 
 export enum Components {

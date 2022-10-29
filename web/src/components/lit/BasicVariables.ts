@@ -1,11 +1,20 @@
 import { LitElement, html } from "lit"
+import { state } from "lit/decorators.js"
 
-const tagName = "hello-world"
+export class MyComponent extends LitElement {
+  override createRenderRoot() {
+    return this
+  }
 
-export class HelloWorld extends LitElement {
+  @state() count = 0
+
+  handleClick = function handleClick() {
+    this.count = this.count + 1
+  }
+
   override render() {
-    return html`<p>Hello world!</p>`
+    return html`
+      <button @click=${() => this.handleClick}>Count: ${this.count}</button>
+    `
   }
 }
-
-customElements.define(tagName, HelloWorld)
