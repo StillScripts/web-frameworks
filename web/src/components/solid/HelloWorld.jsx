@@ -1,7 +1,5 @@
-/** @jsxImportSource solid-js */
+import "solid-js"
 
-const HelloWorld = () => {
-  return <p>Hello world!</p>
-}
+const HelloWorld = () => <p>Hello world!</p>
 
 export default HelloWorld

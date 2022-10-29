@@ -8,7 +8,7 @@ const BasicVariables = () => {
   }
   return (
     <button onClick={handleClick}>
-      Clicked {count} {count === 1 ? "time" : "times"}
+      Count: {count}
     </button>
   )
 }

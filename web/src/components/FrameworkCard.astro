@@ -1,6 +1,7 @@
 ---
-import { Components, Framework, getLogo } from "../utils/components"
+import { Components, Framework } from "../utils/components"
 import FileReader from "./FileReader.astro"
+import Logo from "./Logo.astro"
 
 export interface Props {
   framework: Framework
@@ -18,18 +19,7 @@ const frameworkL = framework.toLowerCase()
 >
   <div>
     <div class="mb-2 flex items-center rounded-3xl">
-      <div
-        class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-gray-800/5 ring-1 ring-gray-900/5"
-      >
-        <img
-          src={getLogo(framework)}
-          alt={framework + "-Logo"}
-          width={32}
-          height={32}
-          class="h-8 w-8 rounded-full"
-          style="color:transparent"
-        />
-      </div>
+      <Logo framework={framework} />
       <h2 class="text-gray-900 ml-2 text-xl font-bold md:text-2xl">
         {framework}
       </h2>

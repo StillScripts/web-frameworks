@@ -1,0 +1,26 @@
+---
+import { Framework, getLogo } from "../utils/components"
+import { classNames } from "../utils/helpers"
+
+export interface Props {
+  framework: Framework
+  className?: string
+}
+
+const { framework, className = "flex" } = Astro.props
+---
+
+<div
+  class={classNames(
+    "relative z-10 h-11 w-11 items-center justify-center rounded-full bg-white shadow-md shadow-gray-800/5 ring-1 ring-gray-900/5",
+    className
+  )}
+>
+  <img
+    src={getLogo(framework)}
+    alt={framework + "-Logo"}
+    width={32}
+    height={32}
+    class="h-7 w-7"
+  />
+</div>

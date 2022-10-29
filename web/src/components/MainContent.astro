@@ -1,11 +1,7 @@
 ---
-import {
-  Components,
-  Framework,
-  getComponentTitle,
-  getLogo,
-} from "../utils/components"
+import { Components, Framework, getComponentTitle } from "../utils/components"
 import FileReader from "./FileReader.astro"
+import Logo from "./Logo.astro"
 import FrameworkSelector from "./FrameworkSelector"
 import ComponentSelector from "./ComponentSelector"
 
@@ -54,11 +50,7 @@ const ringF = `ring-${frameworkL}`
           <span class={textF}>-</span>
           {framework}
         </h1>
-        <img
-          class="hidden ml-2 h-8 w-auto sm:block"
-          src={getLogo(framework)}
-          alt={`${framework} logo`}
-        />
+        <Logo className="hidden ml-2 sm:flex" framework={framework} />
       </div>
       <div class="mt-4 lg:mt-0">
         <FrameworkSelector

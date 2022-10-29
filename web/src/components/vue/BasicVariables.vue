@@ -9,6 +9,6 @@ export default {
 </script>
 
 <template>
-	<button @click="count++">Clicked {{ count }} {{ count === 1 ? 'time' : 'times' }}</button>
+	<button @click="count++">Count: {{ count }}</button>
 </template>
 
