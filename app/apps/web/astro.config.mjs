@@ -10,5 +10,20 @@ import lit from "@astrojs/lit";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), solidJs(), svelte(), vue(), react(), preact(), lit()]
+  integrations: [
+    tailwind(),
+    // Configure JSX renderers with file patterns to avoid conflicts
+    react({
+      include: ['**/React.tsx']
+    }),
+    preact({
+      include: ['**/Preact.tsx']
+    }),
+    solidJs({
+      include: ['**/Solid.tsx']
+    }),
+    svelte(),
+    vue(),
+    lit()
+  ]
 });
