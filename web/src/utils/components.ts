@@ -1,4 +1,4 @@
-export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit"
+export type Framework = "React" | "Solid" | "Svelte" | "Vue" | "Preact" | "Lit" | "Astro"
 
 export const frameworks: Framework[] = [
   "React",
@@ -6,6 +6,7 @@ export const frameworks: Framework[] = [
   "Svelte",
   "Solid",
   "Preact",
+  "Astro",
   //"Lit",
 ]
 
@@ -103,6 +104,8 @@ export const getFileExtension = (framework: Framework): string => {
       return ".svelte"
     case "Vue":
       return ".vue"
+    case "Astro":
+      return ".astro"
     default:
       return ".jsx"
   }

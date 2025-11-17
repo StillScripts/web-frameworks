@@ -1,0 +1,20 @@
+---
+import { Components } from "../../utils/components"
+import HelloWorld from "./HelloWorld.astro"
+import Styling from "./Styling.astro"
+import Props from "./Props.astro"
+import HTML from "./HTML.astro"
+
+interface Props {
+  currentComponent: Components
+}
+
+const { currentComponent } = Astro.props
+---
+
+<div>
+  {currentComponent === Components.HelloWorld && <HelloWorld />}
+  {currentComponent === Components.Styling && <Styling />}
+  {currentComponent === Components.Props && <Props answer="42" />}
+  {currentComponent === Components.HTML && <HTML />}
+</div>

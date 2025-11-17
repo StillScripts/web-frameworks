@@ -11,6 +11,8 @@ export interface Props {
 const { framework, url } = Astro.props
 
 const frameworkL = framework.toLowerCase()
+// Astro doesn't have state, so show HelloWorld instead of BasicVariables
+const previewComponent = framework === "Astro" ? Components.HelloWorld : Components.BasicVariables
 ---
 
 <div
@@ -27,7 +29,7 @@ const frameworkL = framework.toLowerCase()
     <div class="font-normal">
       <FileReader
         framework={framework}
-        component={Components.BasicVariables}
+        component={previewComponent}
         fixedHeight
       />
     </div>

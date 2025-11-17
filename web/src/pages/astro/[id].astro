@@ -1,0 +1,21 @@
+---
+import { componentsList } from "../../utils/components"
+import Layout from "../../layouts/Layout.astro"
+import AstroComponents from "../../components/astro/AstroComponents.astro"
+
+export function getStaticPaths() {
+  // Astro doesn't have state management, so only include first 4 components
+  const astroComponents = componentsList.slice(0, 4)
+  return astroComponents.map((component) => ({ params: { id: component } }))
+}
+
+const { id } = Astro.params
+---
+
+<Layout
+  title="Astro components"
+  framework="Astro"
+  component={parseInt(id as string)}
+>
+  <AstroComponents currentComponent={parseInt(id as string)} />
+</Layout>
