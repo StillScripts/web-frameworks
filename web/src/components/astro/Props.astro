@@ -1,0 +1,9 @@
+---
+interface Props {
+  answer?: string
+}
+
+const { answer = "a mystery" } = Astro.props
+---
+
+<p>The answer is {answer}</p>
